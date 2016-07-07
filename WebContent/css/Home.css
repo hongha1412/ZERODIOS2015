@@ -1,0 +1,77 @@
+body {
+    background-color: #221715;
+}
+
+.full_top {
+    background: url(/images/full_top.jpg) center top no-repeat
+}
+
+.full_btm {
+    background: url(/images/full_btm.jpg) center 383px no-repeat
+}
+
+.cont_b {
+    background: url(/images/con_b.jpg) center bottom no-repeat;
+    padding: 5px 0 80px 25px
+}
+
+.box_b .tab_box .cmsTable td a {
+    width: 225px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.host_search {
+    width: 630px;
+    height: 271px;
+}
+
+.logo {
+    position: absolute;
+    left: 25px;
+    top: 95px;
+}
+
+.logo img {
+    width: 160px;
+}
+
+.full_top {
+    background: url(/images/full_top.jpg) center top no-repeat
+}
+
+.full_btm {
+    background: url(/images/full_btmg.jpg) center 383px no-repeat
+}
+
+.header1 {
+    /*background: url(/images/header_01g.jpg) no-repeat*/
+}
+
+.header2 {
+    background: url(/images/header_02.jpg) no-repeat
+}
+
+.header3 {
+    background: url(/images/header_03.jpg) no-repeat
+}
+
+.cont {
+    background: url(/images/cont_ms.jpg) no-repeat;
+}
+
+.cont_t {
+    background: url(/images/cont_t.jpg) no-repeat 1px 0;
+    height: 440px
+}
+
+.cont_b {
+    background: url(/images/con_b.jpg) center bottom no-repeat;
+    padding: 5px 0 80px 25px
+}
+
+.footer {
+    background: url(/images/footerg.jpg) center bottom no-repeat;
+}
