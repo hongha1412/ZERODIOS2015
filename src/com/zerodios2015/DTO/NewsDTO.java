@@ -54,14 +54,14 @@ public class NewsDTO extends BaseFormDTO {
     private int remark;
 
     /**
-     * Is this pin news boolean
+     * Is this pin news int
      */
-    private byte pin;
+    private boolean pin;
 
     /**
-     * Is this enws available boolean
+     * Is this enws available int
      */
-    private byte status;
+    private int status;
 
     /**
      * Version long
@@ -176,7 +176,7 @@ public class NewsDTO extends BaseFormDTO {
     /**
      * @return the pin
      */
-    public byte isPin() {
+    public boolean isPin() {
         return pin;
     }
 
@@ -184,14 +184,14 @@ public class NewsDTO extends BaseFormDTO {
      * @param pin
      *            the pin to set
      */
-    public void setPin(byte pin) {
+    public void setPin(boolean pin) {
         this.pin = pin;
     }
 
     /**
      * @return the status
      */
-    public byte isStatus() {
+    public int isStatus() {
         return status;
     }
 
@@ -199,7 +199,7 @@ public class NewsDTO extends BaseFormDTO {
      * @param status
      *            the status to set
      */
-    public void setStatus(byte status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -239,8 +239,8 @@ public class NewsDTO extends BaseFormDTO {
      * @param status
      * @param version
      */
-    public NewsDTO(int id, int category, String title, String description, int author, Date date, int remark, byte pin,
-            byte status, long version) {
+    public NewsDTO(int id, int category, String title, String description, int author, Date date, int remark, boolean pin,
+            int status, long version) {
         this.id = id;
         this.category = category;
         this.title = title;
@@ -276,8 +276,8 @@ public class NewsDTO extends BaseFormDTO {
         this.author = Integer.parseInt(author.toString());
         this.date = ZDStringUtils.toDate(date);
         this.remark = Integer.parseInt(remark.toString());
-        this.pin = (byte)pin;
-        this.status = (byte)status;
+        this.pin = (boolean)pin;
+        this.status = (int)status;
         this.version = Long.parseLong(version.toString());
     }
 }

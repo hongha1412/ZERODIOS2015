@@ -22,6 +22,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.zerodios2015.DAO.NewsDAO;
+import com.zerodios2015.DTO.ColumnDTO;
 import com.zerodios2015.DTO.NewsDTO;
 import com.zerodios2015.Utils.ZDLogUtils;
 import com.zerodios2015.VO.NewsOutVO;
@@ -43,6 +44,16 @@ public class NewsAction extends ActionBase {
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
         NewsForm newsForm = (NewsForm) form;
         NewsDTO newsDTO = new NewsDTO();
+        List<ColumnDTO> lsColumn = this.convertToColumn(new NewsDTO());
+
+//        lsColumn.stream().forEach(column -> {
+//            if ("ID".equals(column.getName()) || "CATEGORY".equals(column.getName()) || 
+//                    "PIN".equals(column.getName()) || "STATUS".equals(column.getName()) || 
+//                    "VERSION".equals(column.getName())) {
+//
+//                column.setHidden(true);
+//            }
+//        });
 
         if (newsForm == null) {
             newsForm = new NewsForm();
@@ -60,6 +71,7 @@ public class NewsAction extends ActionBase {
         try {
             outVO.setLsMenu(getMenu(request));
             outVO.setLsNews(getNews(request));
+            outVO.setLsColumn(lsColumn);
         } catch (Exception e) {
             ZDLogUtils.log(Level.WARNING, this, e, "");
         }

@@ -56,6 +56,8 @@ public class ZDStringUtils {
      * @return java.util.Date
      */
     public static Date toDate(Object o) {
-        return new Date(((java.sql.Date)o).getTime());
+        Date date = new Date();
+        date = (java.sql.Timestamp) o;
+        return date;
     }
 }

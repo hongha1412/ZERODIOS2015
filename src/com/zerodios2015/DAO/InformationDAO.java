@@ -22,7 +22,7 @@ import com.zerodios2015.DTO.InformationDTO;
  * @author HaVH-PC
  *
  */
-public class InformationDAO extends BaseDao {
+public class InformationDAO extends BaseDAO {
     DataSource dataSource;
 
     public boolean addInformation(InformationDTO informationDTO) throws SQLException {

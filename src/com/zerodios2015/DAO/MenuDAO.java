@@ -20,7 +20,7 @@ import com.zerodios2015.DTO.MenuDTO;
  * @author HaVH
  *
  */
-public class MenuDAO extends BaseDao {
+public class MenuDAO extends BaseDAO {
 
     DataSource dataSource;
 

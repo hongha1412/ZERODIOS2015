@@ -20,8 +20,8 @@ import com.zerodios2015.Utils.ZDStringUtils;
  * @author HaVH-PC
  *
  */
-public class BaseDao extends JdbcDaoSupport {
-    public BaseDao() {
+public class BaseDAO extends JdbcDaoSupport {
+    public BaseDAO() {
         super();
     }
 

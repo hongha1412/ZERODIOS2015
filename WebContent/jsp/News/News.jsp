@@ -41,7 +41,7 @@
                                         <a href="#"><c:out value="${news.title}" /></a>
                                     </td>
                                     <td class=""><c:out value="${news.author}" /></td>
-                                    <td class=""><fmt:formatDate pattern="ddMMyyyy\nHH:mm:ss" value="${news.date}" /></td>
+                                    <td class=""><fmt:formatDate pattern="ddMMyyyy HH:mm:ss" value="${news.date}" /></td>
                                 </tr>
                             </c:forEach>
                         </c:if>

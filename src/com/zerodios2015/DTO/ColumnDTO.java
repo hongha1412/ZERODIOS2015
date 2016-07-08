@@ -69,4 +69,22 @@ public class ColumnDTO {
     public void setHidden(boolean hidden) {
         this.hidden = hidden;
     }
+
+    /**
+     * Default constructor
+     */
+    public ColumnDTO() {
+        this.sortAsc = true;
+        this.hidden = false;
+    }
+    
+
+    /**
+     * Constructor
+     */
+    public ColumnDTO(String name) {
+        this.name = name;
+        this.sortAsc = true;
+        this.hidden = false;
+    }
 }

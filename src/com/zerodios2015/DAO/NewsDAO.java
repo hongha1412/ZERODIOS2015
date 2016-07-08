@@ -19,7 +19,7 @@ import com.zerodios2015.DTO.NewsDTO;
  * @author HaVH-PC
  *
  */
-public class NewsDAO extends BaseDao {
+public class NewsDAO extends BaseDAO {
 
     public List<NewsDTO> getNews(NewsDTO newsDTO, String condition, int max, int offset) throws Exception {
         List<NewsDTO> lsNews = new ArrayList<>();

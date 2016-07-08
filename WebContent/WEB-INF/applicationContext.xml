@@ -3,6 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans 
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
     <bean id="infoDAO" class="com.zerodios2015.DAO.InformationDAO">
         <property name="dataSource" ref="dataSource" />
     </bean>
