@@ -9,6 +9,8 @@ package com.zerodios2015.DTO;
 
 import java.util.Date;
 
+import com.zerodios2015.Utils.ZDStringUtils;
+
 /**
  * 
  * @author HaVH-PC
@@ -74,7 +76,8 @@ public class NewsDTO extends BaseFormDTO {
     }
 
     /**
-     * @param id the id to set
+     * @param id
+     *            the id to set
      */
     public void setId(int id) {
         this.id = id;
@@ -88,7 +91,8 @@ public class NewsDTO extends BaseFormDTO {
     }
 
     /**
-     * @param category the category to set
+     * @param category
+     *            the category to set
      */
     public void setCategory(int category) {
         this.category = category;
@@ -102,7 +106,8 @@ public class NewsDTO extends BaseFormDTO {
     }
 
     /**
-     * @param title the title to set
+     * @param title
+     *            the title to set
      */
     public void setTitle(String title) {
         this.title = title;
@@ -116,7 +121,8 @@ public class NewsDTO extends BaseFormDTO {
     }
 
     /**
-     * @param description the description to set
+     * @param description
+     *            the description to set
      */
     public void setDescription(String description) {
         this.description = description;
@@ -130,7 +136,8 @@ public class NewsDTO extends BaseFormDTO {
     }
 
     /**
-     * @param author the author to set
+     * @param author
+     *            the author to set
      */
     public void setAuthor(int author) {
         this.author = author;
@@ -144,7 +151,8 @@ public class NewsDTO extends BaseFormDTO {
     }
 
     /**
-     * @param date the date to set
+     * @param date
+     *            the date to set
      */
     public void setDate(Date date) {
         this.date = date;
@@ -158,7 +166,8 @@ public class NewsDTO extends BaseFormDTO {
     }
 
     /**
-     * @param remark the remark to set
+     * @param remark
+     *            the remark to set
      */
     public void setRemark(int remark) {
         this.remark = remark;
@@ -172,7 +181,8 @@ public class NewsDTO extends BaseFormDTO {
     }
 
     /**
-     * @param pin the pin to set
+     * @param pin
+     *            the pin to set
      */
     public void setPin(byte pin) {
         this.pin = pin;
@@ -186,7 +196,8 @@ public class NewsDTO extends BaseFormDTO {
     }
 
     /**
-     * @param status the status to set
+     * @param status
+     *            the status to set
      */
     public void setStatus(byte status) {
         this.status = status;
@@ -200,9 +211,73 @@ public class NewsDTO extends BaseFormDTO {
     }
 
     /**
-     * @param version the version to set
+     * @param version
+     *            the version to set
      */
     public void setVersion(long version) {
         this.version = version;
+    }
+
+    /**
+     * Default constructor
+     */
+    public NewsDTO() {
+        super();
+    }
+
+    /**
+     * Constructor full parameter
+     * 
+     * @param id
+     * @param category
+     * @param title
+     * @param description
+     * @param author
+     * @param date
+     * @param remark
+     * @param pin
+     * @param status
+     * @param version
+     */
+    public NewsDTO(int id, int category, String title, String description, int author, Date date, int remark, byte pin,
+            byte status, long version) {
+        this.id = id;
+        this.category = category;
+        this.title = title;
+        this.description = description;
+        this.author = author;
+        this.date = date;
+        this.remark = remark;
+        this.pin = pin;
+        this.status = status;
+        this.version = version;
+    }
+
+    /**
+     * Constructor full object parameter
+     * 
+     * @param id
+     * @param category
+     * @param title
+     * @param description
+     * @param author
+     * @param date
+     * @param remark
+     * @param pin
+     * @param status
+     * @param version
+     */
+    public NewsDTO(Object id, Object category, Object title, Object description, Object author, Object date,
+            Object remark, Object pin, Object status, Object version) {
+        this.id = Integer.parseInt(id.toString());
+        this.category = Integer.parseInt(category.toString());
+        this.title = title.toString();
+        this.description = description.toString();
+        this.author = Integer.parseInt(author.toString());
+        this.date = ZDStringUtils.toDate(date);
+        this.remark = Integer.parseInt(remark.toString());
+        this.pin = (byte)pin;
+        this.status = (byte)status;
+        this.version = Long.parseLong(version.toString());
     }
 }

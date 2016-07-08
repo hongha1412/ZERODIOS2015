@@ -23,7 +23,8 @@ public class ZDLogUtils {
 
     public static void log(Level level, Object o, Exception e, String message) {
         if (ZDStringUtils.isEmpty(message)) {
-            Logger.getGlobal().log(level, new Date() + "Exception occur at " + o.getClass().getName() + ": " + e.getMessage());
+            Logger.getGlobal().log(level, new Date() + " Exception occur at " + o.getClass().getName() + ": " + e.getMessage());
+            e.printStackTrace();
         } else {
             Logger.getGlobal().log(level, new Date() + message);
         }

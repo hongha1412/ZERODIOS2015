@@ -10,6 +10,7 @@ package com.zerodios2015.DAO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.zerodios2015.DTO.NewsDTO;
 
@@ -47,6 +48,19 @@ public class NewsDAO extends BaseDao {
         }
 
         List<Map<String, Object>> result = getJdbcTemplate().queryForList(sqlCommand.toString(), sqlParameter.toArray());
+        lsNews = result.stream().map(news -> {
+            return new NewsDTO(
+                    news.get("ID"),
+                    news.get("CATEGORY"),
+                    news.get("TITLE"),
+                    news.get("DESCRIPTION"),
+                    news.get("AUTHOR"),
+                    news.get("DATE"),
+                    news.get("REMARK"),
+                    news.get("PIN"),
+                    news.get("STATUS"),
+                    news.get("VERSION"));
+        }).collect(Collectors.toList());
 
         return lsNews;
     }
