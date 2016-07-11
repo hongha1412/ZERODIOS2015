@@ -18,8 +18,8 @@
         <link rel="SHORTCUT ICON" href="/images/jz426.ico" />
         <script type="text/javascript" src="/js/public.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/css_120514.css" />
-        <script type="text/javascript" src="/js/index_120514.js"></script>
         <script type="text/javascript" src="/js/jquery-3.0.0.js"></script>
+        <script type="text/javascript" src="/js/index_120514.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/Home.css" />
 
         <template:get name="header" />
@@ -27,7 +27,7 @@
 
     <body>
         <!--full_bg-->
-        <div class="full_top">
+        <div class="full_top" style="visibility: hidden">
             <div class="full_btm">
                 <div class="wapper relative">
 
