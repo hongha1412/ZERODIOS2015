@@ -38,7 +38,7 @@ public class MenuDAO extends BaseDao {
             if ((int) map.get("parent") == -1) {
                 lsParent.add(new MenuDTO((int) map.get("id"), map.get("name").toString(), (int) map.get("parent"),
                         map.get("link").toString(), (int) map.get("level"), (int) map.get("status"),
-                        (long) map.get("version")));
+                        Long.parseLong(map.get("version").toString())));
             } else {
                 partCollection.add(map);
             }
@@ -60,7 +60,7 @@ public class MenuDAO extends BaseDao {
                 menu.getLsChild()
                         .add(new MenuDTO((int) child.get("id"), child.get("name").toString(), (int) child.get("parent"),
                                 child.get("link").toString(), (int) child.get("level"), (int) child.get("status"),
-                                (long) child.get("version")));
+                                Long.parseLong(child.get("version").toString())));
             });
         } else {
             lsMenu.stream().forEach(menu -> {

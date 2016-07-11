@@ -7,6 +7,8 @@
  */
 package com.zerodios2015.Utils;
 
+import java.util.Date;
+
 /**
  * 
  * @author HaVH-PC
@@ -45,5 +47,17 @@ public class ZDStringUtils {
 
     public static boolean isNotInteger(Object str) {
         return !isInteger(str);
+    }
+
+    /**
+     * Convert mysql object date to java.util.Date
+     * 
+     * @param o Mysql Object Date
+     * @return java.util.Date
+     */
+    public static Date toDate(Object o) {
+        Date date = new Date();
+        date = (java.sql.Timestamp) o;
+        return date;
     }
 }

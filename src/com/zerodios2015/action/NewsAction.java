@@ -51,8 +51,10 @@ public class NewsAction extends ActionBase {
             BeanUtils.copyProperties(newsDTO, newsForm);
         } catch (IllegalAccessException e) {
             ZDLogUtils.log(Level.WARNING, this, e, "");
+            e.printStackTrace();
         } catch (InvocationTargetException e) {
             ZDLogUtils.log(Level.WARNING, this, e, "");
+            e.printStackTrace();
         }
 
         NewsOutVO outVO = new NewsOutVO();
@@ -62,6 +64,7 @@ public class NewsAction extends ActionBase {
             outVO.setLsNews(getNews(request));
         } catch (Exception e) {
             ZDLogUtils.log(Level.WARNING, this, e, "");
+            e.printStackTrace();
         }
         request.setAttribute("outVO", outVO);
 

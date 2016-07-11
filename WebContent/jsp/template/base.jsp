@@ -56,7 +56,6 @@
                 <a href="#" target="_blank"><img src="/images/yy.png" />
                 </a>
             </div>
-            <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
             <script type="text/javascript">
                 var scrollBar2 = function() {
                     if ($(window).width() > 1002) {

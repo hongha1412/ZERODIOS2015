@@ -9,8 +9,10 @@
 
 <template:insert template="/jsp/template/base.jsp">
     <template:put name="header">
-        <script src="News.js"></script>
+        <script src="/js/News.js"></script>
+        <script src="/css/News.css"></script>
         <script src="/js/datatables/datatables.js"></script>
+        <link rel="stylesheet" type="text/css" href="/js/datatables/datatables.css" />
     </template:put>
     <template:put name="content">
         <div class="function-area">
@@ -24,14 +26,14 @@
                         <c:if test="${not empty outVO.lsNews}">
                             <c:forEach items="#{outVO.lsNews}" var="news">
                                 <tr>
-                                    <td class=""><c:out value="${news.id}" /></td>
-                                    <td class=""><c:out value="${news.category}" /></td>
+                                    <td class="hidden"><c:out value="${news.id}" /></td>
+                                    <td class="hidden"><c:out value="${news.category}" /></td>
                                     <td class=""><c:out value="${news.remark}" /></td>
                                     <td class="">
                                         <a href="#"><c:out value="${news.title}" /></a>
                                     </td>
                                     <td class=""><c:out value="${news.author}" /></td>
-                                    <td class=""><fmt:formatDate pattern="ddMMyyyy\nHH:mm:ss" value="${news.date}" /></td>
+                                    <td class=""><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${news.date}" /></td>
                                 </tr>
                             </c:forEach>
                         </c:if>
