@@ -56,9 +56,9 @@ public class ZDTags extends SimpleTagSupport {
             StringBuilder headerStr = new StringBuilder();
             for (String header : lsHeader) {
                 if (lsHidden.contains(header)) {
-                    headerStr.append("<th class='hidden'>");
+                    headerStr.append("<th class='hidden text-header'>");
                 } else {
-                    headerStr.append("<th>");
+                    headerStr.append("<th class='text-header'>");
                 }
                 headerStr.append(header + "</th>");
             }

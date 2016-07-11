@@ -19,8 +19,9 @@
             <!-- TODO button new post with check permission -->
         </div>
         <div class="content-area">
+            <div class="blank"></div>
             <div class="news-table">
-                <table id="news-table">
+                <table id="news-table" width="100%">
                     <ZDTags:listHeader tableName="News" />
                     <tbody>
                         <c:if test="${not empty outVO.lsNews}">
@@ -29,7 +30,7 @@
                                     <td class="hidden"><c:out value="${news.id}" /></td>
                                     <td class="hidden"><c:out value="${news.category}" /></td>
                                     <td class=""><c:out value="${news.remark}" /></td>
-                                    <td class="">
+                                    <td class="" width="50%">
                                         <a href="#"><c:out value="${news.title}" /></a>
                                     </td>
                                     <td class=""><c:out value="${news.author}" /></td>
