@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    $("body > .full_top").css("visibility", "");
+});
+
 function tfid(id) {
     return document.getElementById(id);
 }

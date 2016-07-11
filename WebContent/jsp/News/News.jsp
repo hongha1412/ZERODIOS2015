@@ -5,11 +5,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://www.common-controls.com/cc/tags-template" prefix="template" %>
+<%@ taglib uri="http://zerodios2015.com/Utils/ZDTags" prefix="ZDTags" %>
 
 <template:insert template="/jsp/template/base.jsp">
     <template:put name="header">
-        <script src="News.js"></script>
         <script src="/js/datatables/datatables.js"></script>
+        <link rel="stylesheet" type="text/css" href="/js/datatables/datatables.css" />
+        <script src="/js/News.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/News.css" />
     </template:put>
     <template:put name="content">
         <div class="function-area">
@@ -18,30 +21,19 @@
         <div class="content-area">
             <div class="news-table">
                 <table id="news-table">
-                    <thead>
-                        <c:if test="${not empty outVO.lsColumn}">
-                            <c:forEach items="${outVO.lsColumn}" var="column">
-                                <th class="${column.hidden ? 'hidden' : ''}"><c:out value="${column.name}"/></th>
-                            </c:forEach>
-                        </c:if>
-                    </thead>
-                    <tfoot>
-                        <c:if test="${not empty outVO.lsColumn}">
-                            <c:forEach items="${outVO.lsColumn}" var="column">
-                                <th class="${column.hidden ? 'hidden' : ''}"><c:out value="${column.name}"/></th>
-                            </c:forEach>
-                        </c:if>
-                    </tfoot>
+                    <ZDTags:listHeader tableName="News" />
                     <tbody>
                         <c:if test="${not empty outVO.lsNews}">
                             <c:forEach items="#{outVO.lsNews}" var="news">
                                 <tr>
+                                    <td class="hidden"><c:out value="${news.id}" /></td>
+                                    <td class="hidden"><c:out value="${news.category}" /></td>
                                     <td class=""><c:out value="${news.remark}" /></td>
                                     <td class="">
                                         <a href="#"><c:out value="${news.title}" /></a>
                                     </td>
                                     <td class=""><c:out value="${news.author}" /></td>
-                                    <td class=""><fmt:formatDate pattern="ddMMyyyy HH:mm:ss" value="${news.date}" /></td>
+                                    <td class=""><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${news.date}" /></td>
                                 </tr>
                             </c:forEach>
                         </c:if>
