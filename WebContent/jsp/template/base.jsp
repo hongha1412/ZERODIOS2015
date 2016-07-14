@@ -15,12 +15,13 @@
         <meta name="keywords" content="Zero, Zero Online, Đại Chiến Robot, Scifi, Robot, Game, Game Online" />
         <meta name="description" content="Game Online Zero - Đại chiến robot với đồ họa 2.5D được phát triển lại bởi ZeroDios team" />
         <meta http-equiv="x-ua-compatible" content="ie=7" />
+        <script type="text/javascript" src="/js/jquery-3.0.0.js"></script>
+        <script type="text/javascript" src="/js/index_120514.js"></script>
         <link rel="SHORTCUT ICON" href="/images/jz426.ico" />
         <script type="text/javascript" src="/js/public.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/css_120514.css" />
-        <script type="text/javascript" src="/js/jquery-3.0.0.js"></script>
-        <script type="text/javascript" src="/js/index_120514.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/Home.css" />
+        <link rel="stylesheet" type="text/css" href="/plugin/fa/css/font-awesome.css" />
 
         <template:get name="header" />
     </head>

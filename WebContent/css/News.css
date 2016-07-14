@@ -1,7 +1,11 @@
 .news-table {
     margin: 0px 20px 10px 20px;
+    color: #aaaaaa;
 }
 
+#news-table {
+    color: #aaaaaa;
+}
 .blank {
     height: 20px;
     width: 100%;

@@ -9,8 +9,8 @@
 
 <template:insert template="/jsp/template/base.jsp">
     <template:put name="header">
-        <script src="/js/datatables/datatables.js"></script>
-        <link rel="stylesheet" type="text/css" href="/js/datatables/datatables.css" />
+        <script src="/plugin/datatables/datatables.js"></script>
+        <link rel="stylesheet" type="text/css" href="/plugin/datatables/datatables.css" />
         <script src="/js/News.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/News.css" />
     </template:put>
