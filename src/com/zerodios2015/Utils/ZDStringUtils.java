@@ -15,6 +15,9 @@ import java.util.Date;
  *
  */
 public class ZDStringUtils {
+
+    public static final String EMPTY = "";
+
     public static boolean isEmpty(Object str) {
         boolean result = false;
 

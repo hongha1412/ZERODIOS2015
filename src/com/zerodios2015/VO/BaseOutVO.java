@@ -9,7 +9,6 @@ package com.zerodios2015.VO;
 
 import java.util.List;
 
-import com.zerodios2015.DTO.ColumnDTO;
 import com.zerodios2015.DTO.MenuDTO;
 
 /**
@@ -21,7 +20,7 @@ public class BaseOutVO {
 
     private String title;
     private List<MenuDTO> lsMenu;
-    private List<ColumnDTO> lsColumn;
+    private int userId;
 
     /**
      * Default constructor
@@ -59,16 +58,16 @@ public class BaseOutVO {
     }
 
     /**
-     * @return the lsColumn
+     * @return the userId
      */
-    public List<ColumnDTO> getLsColumn() {
-        return lsColumn;
+    public int getUserId() {
+        return userId;
     }
 
     /**
-     * @param lsColumn the lsColumn to set
+     * @param userId the userId to set
      */
-    public void setLsColumn(List<ColumnDTO> lsColumn) {
-        this.lsColumn = lsColumn;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

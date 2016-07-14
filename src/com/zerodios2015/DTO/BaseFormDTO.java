@@ -21,11 +21,6 @@ public class BaseFormDTO {
     private List<MenuDTO> lsMenu;
 
     /**
-     * Column list of screen data List<ColumnDTO>
-     */
-    private List<ColumnDTO> lsColumn;
-
-    /**
      * @return the lsMenu
      */
     public List<MenuDTO> getLsMenu() {
@@ -37,19 +32,5 @@ public class BaseFormDTO {
      */
     public void setLsMenu(List<MenuDTO> lsMenu) {
         this.lsMenu = lsMenu;
-    }
-
-    /**
-     * @return the lsColumn
-     */
-    public List<ColumnDTO> getLsColumn() {
-        return lsColumn;
-    }
-
-    /**
-     * @param lsColumn the lsColumn to set
-     */
-    public void setLsColumn(List<ColumnDTO> lsColumn) {
-        this.lsColumn = lsColumn;
     }
 }

@@ -10,7 +10,6 @@ package com.zerodios2015.VO;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zerodios2015.DTO.ColumnDTO;
 import com.zerodios2015.DTO.NewsDTO;
 
 /**
@@ -20,7 +19,6 @@ import com.zerodios2015.DTO.NewsDTO;
  */
 public class NewsOutVO extends BaseOutVO {
     private List<NewsDTO> lsNews;
-    private List<ColumnDTO> lsColumn;
     private String sortKey;
     private String sortOrder;
     private String max;
@@ -43,20 +41,6 @@ public class NewsOutVO extends BaseOutVO {
      */
     public void setLsNews(List<NewsDTO> lsNews) {
         this.lsNews = lsNews;
-    }
-
-    /**
-     * @return the lsColumn
-     */
-    public List<ColumnDTO> getLsColumn() {
-        return lsColumn;
-    }
-
-    /**
-     * @param lsColumn the lsColumn to set
-     */
-    public void setLsColumn(List<ColumnDTO> lsColumn) {
-        this.lsColumn = lsColumn;
     }
 
     /**

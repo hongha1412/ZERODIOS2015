@@ -22,9 +22,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.zerodios2015.DAO.NewsDAO;
-import com.zerodios2015.DTO.ColumnDTO;
 import com.zerodios2015.DTO.NewsDTO;
 import com.zerodios2015.Utils.ZDLogUtils;
+import com.zerodios2015.Utils.ZDStringUtils;
 import com.zerodios2015.VO.NewsOutVO;
 import com.zerodios2015.form.NewsForm;
 
@@ -34,8 +34,6 @@ import com.zerodios2015.form.NewsForm;
  *
  */
 public class NewsAction extends ActionBase {
-    public static final String SORT_KEY = "sortKey";
-    public static final String SORT_ORDER = "sortOrder";
 
     public NewsAction() {
         super();
@@ -44,16 +42,6 @@ public class NewsAction extends ActionBase {
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
         NewsForm newsForm = (NewsForm) form;
         NewsDTO newsDTO = new NewsDTO();
-        List<ColumnDTO> lsColumn = this.convertToColumn(new NewsDTO());
-
-//        lsColumn.stream().forEach(column -> {
-//            if ("ID".equals(column.getName()) || "CATEGORY".equals(column.getName()) || 
-//                    "PIN".equals(column.getName()) || "STATUS".equals(column.getName()) || 
-//                    "VERSION".equals(column.getName())) {
-//
-//                column.setHidden(true);
-//            }
-//        });
 
         if (newsForm == null) {
             newsForm = new NewsForm();
@@ -61,9 +49,9 @@ public class NewsAction extends ActionBase {
         try {
             BeanUtils.copyProperties(newsDTO, newsForm);
         } catch (IllegalAccessException e) {
-            ZDLogUtils.log(Level.WARNING, this, e, "");
+            ZDLogUtils.log(Level.WARNING, this, e, ZDStringUtils.EMPTY);
         } catch (InvocationTargetException e) {
-            ZDLogUtils.log(Level.WARNING, this, e, "");
+            ZDLogUtils.log(Level.WARNING, this, e, ZDStringUtils.EMPTY);
         }
 
         NewsOutVO outVO = new NewsOutVO();
@@ -71,9 +59,8 @@ public class NewsAction extends ActionBase {
         try {
             outVO.setLsMenu(getMenu(request));
             outVO.setLsNews(getNews(request));
-            outVO.setLsColumn(lsColumn);
         } catch (Exception e) {
-            ZDLogUtils.log(Level.WARNING, this, e, "");
+            ZDLogUtils.log(Level.WARNING, this, e, ZDStringUtils.EMPTY);
         }
         request.setAttribute("outVO", outVO);
 
@@ -85,7 +72,7 @@ public class NewsAction extends ActionBase {
         NewsDAO newsDAO = (NewsDAO) ctx.getBean("newsDAO");
         List<NewsDTO> lsNews = null;
 
-        lsNews = newsDAO.getNews(null, "", Integer.MAX_VALUE, 0);
+        lsNews = newsDAO.getNews(null, ZDStringUtils.EMPTY, Integer.MAX_VALUE, 0);
 
         return lsNews;
     }
