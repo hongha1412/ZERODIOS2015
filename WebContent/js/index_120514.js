@@ -1,5 +1,13 @@
 $(document).ready(function() {
     $("body > .full_top").css("visibility", "");
+    $(".link").click(function() {
+        var href = $(this).find("a").attr("href");
+        if (href) {
+            window.location.href = href;
+        }
+    }).hover(function() {
+        $(this).toggleClass("hover");
+    });
 });
 
 function tfid(id) {

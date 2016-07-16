@@ -30,8 +30,10 @@
                                     <td class="hidden"><c:out value="${news.id}" /></td>
                                     <td class="hidden"><c:out value="${news.category}" /></td>
                                     <td class=""><c:out value="${news.remark}" /></td>
-                                    <td class="" width="50%">
-                                        <a href="#"><c:out value="${news.title}" /></a>
+                                    <td class="link" width="50%">
+                                        <a href="#">
+                                            <c:out escapeXml="false" value="<div>${news.title}</div>" />
+                                        </a>
                                     </td>
                                     <td class=""><c:out value="${news.author}" /></td>
                                     <td class=""><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${news.date}" /></td>
