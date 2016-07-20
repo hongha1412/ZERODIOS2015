@@ -182,11 +182,15 @@ a:hover { text-decoration:underline}
 .to { height:8px }
 .STYLE1 { padding-left: 24px; background: url(../images/ico4.gif) no-repeat 5px; font-weight: bold; }
 #zhaopian table{ width:100%;}
-table.dataTable thead th {
+table.dataTable thead th,
+table.dataTable tfoot th {
     position: relative;
     background-image: none !important;
+    /*text-align: center;*/
 }
- 
+table.dataTable thead > tr > th.sorting {
+    padding-right: 0px !important;
+}
 table.dataTable thead th.sorting:after,
 table.dataTable thead th.sorting_asc:after,
 table.dataTable thead th.sorting_desc:after {
@@ -195,6 +199,7 @@ table.dataTable thead th.sorting_desc:after {
     right: 8px;
     display: block;
     font-family: FontAwesome;
+    background: center left;
 }
 table.dataTable thead .sorting:after {
     content: "\f0dc" !important;

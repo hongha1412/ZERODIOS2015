@@ -17,12 +17,13 @@
     <template:put name="content">
         <div class="function-area">
             <!-- TODO button new post with check permission -->
+            <button class="btn"><%=MessageProperties.getMessage("news.NewTopic") %></button>
         </div>
         <div class="content-area">
             <div class="blank"></div>
             <div class="news-table">
-                <table id="news-table" width="100%">
-                    <ZDTags:listHeader tableName="News" />
+                <table id="news-table" class="row-border" cellspacing="0" width="100%">
+                    <ZDTags:listHeader tableName="News" align="center" />
                     <tbody>
                         <c:if test="${not empty outVO.lsNews}">
                             <c:forEach items="#{outVO.lsNews}" var="news">

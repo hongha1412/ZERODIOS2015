@@ -16,5 +16,8 @@
         <name>tableName</name>
         <required>true</required>
     </attribute>
+    <attribute>
+        <name>align</name>
+    </attribute>
 </tag>
 </taglib>

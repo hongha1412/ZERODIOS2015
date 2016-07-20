@@ -31,6 +31,15 @@ public class ZDTags extends SimpleTagSupport {
         this.tableName = tableName;
     }
 
+    private String align;
+
+    /**
+     * @param align the align to set
+     */
+    public void setAlign(String align) {
+        this.align = align;
+    }
+
     /**
      * Default constructor
      */
@@ -56,9 +65,9 @@ public class ZDTags extends SimpleTagSupport {
             StringBuilder headerStr = new StringBuilder();
             for (String header : lsHeader) {
                 if (lsHidden.contains(header)) {
-                    headerStr.append("<th class='hidden text-header'>");
+                    headerStr.append("<th class='hidden text-header dt-head-" + align + "'>");
                 } else {
-                    headerStr.append("<th class='text-header'>");
+                    headerStr.append("<th class='text-header dt-head-" + align + "'>");
                 }
                 headerStr.append(header + "</th>");
             }
