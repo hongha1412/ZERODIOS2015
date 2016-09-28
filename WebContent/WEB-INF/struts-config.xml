@@ -36,10 +36,9 @@
             name="logonForm" type="org.apache.struts.action.DynaActionForm"> <form-property 
             name="username" type="java.lang.String"/> <form-property name="password" 
             type="java.lang.String"/> </form-bean> end sample -->
-        <form-bean name="inputForm"
-            type="com.zerodios2015.form.InformationForm" />
         <form-bean name="newsForm"
             type="com.zerodios2015.form.NewsForm" />
+        <form-bean name="adminLoginForm" type="" />
     </form-beans>
 
 

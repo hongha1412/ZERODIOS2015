@@ -12,6 +12,7 @@
         <meta name="description" content="Game Online Zero - Đại chiến robot với đồ họa 2.5D được phát triển lại bởi ZeroDios team" />
         <meta http-equiv="x-ua-compatible" content="ie=7" />
         <link rel="SHORTCUT ICON" href="/images/jz426.ico" />
+        <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="/js/public.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/css_120514.css" />
         <script type="text/javascript" src="/js/index_120514.js"></script>
@@ -147,75 +148,6 @@
                             <script language="javascript">
                                 showFlash("./swf/index_ico_01_new.swf", 306, 369, 1)
                             </script>
-                        </div>
-                    </div>
-                    <div id="rdhd" class="rdhd">
-                        <div class="rdhd_title"></div>
-                        <div class="rdhd_box">
-                            <div class="b1">
-                                <table class="four_tab">
-                                    <tbody>
-                                        <tr>
-                                            <td align="center"><a href="http://yygxz.jz.99.com/" title="YY贡献值游乐园" target="_blank"><img src="http://img3.91huo.cn/www/2015/08/03/297x166yly.gif" border="0" width="297" height="166" title="YY贡献值游乐园"/></a></td>
-                                            <td align="center"><a href="http://jz.99.com/activity/2015/ydwz/" title="跨服月赛" target="_blank"><img src="http://img3.91huo.cn/photo.news/2015/05/05/297x166kfys.jpg" border="0" width="297" height="166" title="跨服月赛"/></a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!--<div class="b2">
-                                <script type="text/javascript">showFlash("http://img5.91huo.cn/jz/images/100207/index/ht.swf",591,119,1)</script>
-                                </div>-->
-                            <!--column_3-->
-                            <div class="column">
-                                <ul class="flash_tab" id="flash_tab">
-                                    <li class="on" onclick="switchTab('flash_tab','on','a',0,this)"><a href="javascript:;" class="t_hide">合体机体</a></li>
-                                    <li onclick="switchTab('flash_tab','on1','a',1,this)"><a href="javascript:;" class="t_hide">机械载具</a></li>
-                                    <li onclick="switchTab('flash_tab','on2','a',2,this)"><a href="javascript:;" class="t_hide">变形机体</a></li>
-                                </ul>
-                                <a href="http://jz.99.com/guide/airframe/" target="_blank" title="机体介绍" class="rc_op">机体介绍&gt;&gt;</a>
-                                <div id="flash_tab_con" class="flash_tab_con">
-                                    <div id="a0">
-                                        <script type="text/javascript">showFlash("http://img0.91huo.cn/jz/images/100207/index/ht.swf",690,139,1)</script>
-                                        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="690" height="139">
-                                            <param name="movie" value="http://img0.91huo.cn/jz/images/100207/index/ht.swf"/>
-                                            <param name="quality" value="high"/>
-                                            <param name="menu" value="false"/>
-                                            <param name="allowScriptAccess" value="always"/>
-                                            <param name="allowFullscreen" value="true"/>
-                                            <param name="wmode" value="transparent"/>
-                                            <div class="flashcontrol-placeholder" title="Run this plugin with Flashcontrol" style="width: 690px; height: 139px; z-index: auto; background-image: url(&quot;chrome-extension://mfidmkgnfgnkihnjeklbekckimkipmoe/skin/pluginlogo.svg&quot;); background-color: rgb(70, 70, 70);"></div>
-                                            <embed src="http://img0.91huo.cn/jz/images/100207/index/ht.swf" width="690" height="139" allowscriptaccess="always" allowfullscreen="true" menu="false" quality="high" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" style="display: none !important;"/>
-                                        </object>
-                                    </div>
-                                    <div id="a1" style="display:none">
-                                        <script type="text/javascript">showFlash("http://img5.91huo.cn/jz/images/120516/index/jxzj.swf",690,139,1)</script>
-                                        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="690" height="139">
-                                            <param name="movie" value="http://img5.91huo.cn/jz/images/120516/index/jxzj.swf"/>
-                                            <param name="quality" value="high"/>
-                                            <param name="menu" value="false"/>
-                                            <param name="allowScriptAccess" value="always"/>
-                                            <param name="allowFullscreen" value="true"/>
-                                            <param name="wmode" value="transparent"/>
-                                            <div class="flashcontrol-placeholder" title="Run this plugin with Flashcontrol" style="width: 690px; height: 139px; z-index: auto; background-image: url(&quot;chrome-extension://mfidmkgnfgnkihnjeklbekckimkipmoe/skin/pluginlogo.svg&quot;); background-color: rgb(70, 70, 70);"></div>
-                                            <embed src="http://img5.91huo.cn/jz/images/120516/index/jxzj.swf" width="690" height="139" allowscriptaccess="always" allowfullscreen="true" menu="false" quality="high" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" style="display: none !important;"/>
-                                        </object>
-                                    </div>
-                                    <div id="a2" style="display:none">
-                                        <script type="text/javascript">showFlash("http://img0.91huo.cn/jz/images/100207/index/bx.swf",690,139,1)</script>
-                                        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="690" height="139">
-                                            <param name="movie" value="http://img0.91huo.cn/jz/images/100207/index/bx.swf"/>
-                                            <param name="quality" value="high"/>
-                                            <param name="menu" value="false"/>
-                                            <param name="allowScriptAccess" value="always"/>
-                                            <param name="allowFullscreen" value="true"/>
-                                            <param name="wmode" value="transparent"/>
-                                            <div class="flashcontrol-placeholder" title="Run this plugin with Flashcontrol" style="width: 690px; height: 139px; z-index: auto; background-image: url(&quot;chrome-extension://mfidmkgnfgnkihnjeklbekckimkipmoe/skin/pluginlogo.svg&quot;); background-color: rgb(70, 70, 70);"></div>
-                                            <embed src="http://img0.91huo.cn/jz/images/100207/index/bx.swf" width="690" height="139" allowscriptaccess="always" allowfullscreen="true" menu="false" quality="high" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" style="display: none !important;"/>
-                                        </object>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/column_3-->
                         </div>
                     </div>
                     <div class="wapper cont">
@@ -828,7 +760,6 @@
             <a href="#" target="_blank"><img src="/images/yy.png"/>
             </a>
         </div>
-        <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
         <script type="text/javascript">
             var scrollBar2 = function() {
                 if ($(window).width() > 1002) {

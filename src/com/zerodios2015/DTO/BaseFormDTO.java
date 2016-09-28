@@ -9,28 +9,17 @@ package com.zerodios2015.DTO;
 
 import java.util.List;
 
+import lombok.Data;
+
 /**
  * @author HaVH
  *
  */
+@Data
 public class BaseFormDTO {
 
     /**
      * Menu list in database List<MenuDTO>
      */
     private List<MenuDTO> lsMenu;
-
-    /**
-     * @return the lsMenu
-     */
-    public List<MenuDTO> getLsMenu() {
-        return lsMenu;
-    }
-
-    /**
-     * @param lsMenu the lsMenu to set
-     */
-    public void setLsMenu(List<MenuDTO> lsMenu) {
-        this.lsMenu = lsMenu;
-    }
 }

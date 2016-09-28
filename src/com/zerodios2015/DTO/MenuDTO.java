@@ -10,10 +10,15 @@ package com.zerodios2015.DTO;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
  * @author HaVH
  *
  */
+@Data
+@EqualsAndHashCode(callSuper=false)
 public class MenuDTO {
 
     /**
@@ -55,118 +60,6 @@ public class MenuDTO {
      * List<MenuDTO>
      */
     private List<MenuDTO> lsChild;
-
-    /**
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the parent
-     */
-    public int getParent() {
-        return parent;
-    }
-
-    /**
-     * @param parent the parent to set
-     */
-    public void setParent(int parent) {
-        this.parent = parent;
-    }
-
-    /**
-     * @return the link
-     */
-    public String getLink() {
-        return link;
-    }
-
-    /**
-     * @param link the link to set
-     */
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    /**
-     * @return the level
-     */
-    public int getLevel() {
-        return level;
-    }
-
-    /**
-     * @param level the level to set
-     */
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    /**
-     * @return the status
-     */
-    public int getStatus() {
-        return status;
-    }
-
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    /**
-     * @return the version
-     */
-    public long getVersion() {
-        return version;
-    }
-
-    /**
-     * @param version the version to set
-     */
-    public void setVersion(long version) {
-        this.version = version;
-    }
-
-    /**
-     * @return the lsChild
-     */
-    public List<MenuDTO> getLsChild() {
-        return lsChild;
-    }
-
-    /**
-     * @param lsChild the lsChild to set
-     */
-    public void setLsChild(List<MenuDTO> lsChild) {
-        this.lsChild = lsChild;
-    }
 
     /**
      * Default Constructor

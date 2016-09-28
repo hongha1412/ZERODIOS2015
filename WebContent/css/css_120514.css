@@ -1,9 +1,9 @@
 @charset "utf-8";
 body, div, h1, h2, h3, h4, h5, h6, p, blockquote, dl, dt, dd, ul, ol, li, fieldset, form, tr, th, td, center, input, button, textarea ,*{ padding:0; margin:0; list-style:none;}
-body { font:12px/22px  "����", tahoma; color:#9b9b9b; background:#27314a }
+body { font:12px/22px , tahoma; color:#9b9b9b; background:#27314a }
 img { border:none }
 table { border-collapse:collapse; border-spacing:0 }
-input, textarea, select { font:12px  "����", tahoma; outline:none}
+input, textarea, select { font:12px , tahoma; outline:none}
 a { color:#9b9b9b; text-decoration:none }
 a:hover { text-decoration:underline}
 .clearfix:after { visibility: hidden; display: block; content:""; clear: both; font-size: 0; height: 0; }
@@ -17,12 +17,12 @@ a:hover { text-decoration:underline}
 .purple{ color:#4e3256}
 .mb_8{ margin-bottom:8px}
 .cmsTable{ width:100%}
-.wapper { width:1002px; min-height: 700px; margin:0 auto }
-/*-----------����������ʽ��ʼ------------------*/
+.wapper { width:1002px; min-height: 440px; margin:0 auto }
+
 .full_bg{ background:url(../images/full_bg.jpg) center top no-repeat}
 .header1,.header2,.header3{ height:141px}
 /*.logo{ display:block; width:200px; height:110px; position:absolute; left:30px; top:145px }*/
-/*------������ʽ---------*/
+
 .nav{ height:45px; padding-left:110px; padding-top:30px}
 .nav li{ float:left; width:95px; height:50px;}
 .nav li a.hidden{ display:block;width:95px; height:50px;}
@@ -45,11 +45,11 @@ a:hover { text-decoration:underline}
 .sed_nav5{ left:-502px}
 .sed_nav6{ left:-597px}
 .sed_nav7{ left:-692px}
-/*------������ʽEnd---------*/
+
 .header1{ background:url(../images/header_01g.jpg) no-repeat}
 .header2{ background:url(../images/header2.jpg) no-repeat}
 .header3{ background:url(../images/header3_2.jpg) no-repeat}
-/*------����ģ����ʽ---------*/
+
 .cont_t{ background:url(../images/cont_t_.jpg) no-repeat; height:440px}
 .cont_b_btn1,.cont_b_btn2,.cont_b_btn3{ display:block; width:206px; height:109px; background:url(../images/cont_t_btns.jpg) no-repeat 99999px 0; position:absolute; top:0px}
 .cont_b_btn1{ left:33px}
@@ -60,9 +60,9 @@ a:hover { text-decoration:underline}
 .cont_b_btn3:hover{ background-position:-418px -1px}
 #flashlbDiv{ width:630; height:315px; position:absolute; left:27px; top:120px}
 .apple_icon{ width:306px; height:369px; position:absolute; right:15px; top:64px}
-/*------����ģ����ʽEnd----------*/
 
-/*------������ʽ---------*/
+
+
 .cont{ background:url(../images/cont_m.jpg) 14px 0 repeat-y}
 .cont_b{ background:url(../images/cont_b.jpg) 14px bottom no-repeat; padding:5px 0 80px 25px}
 .cont_l{ width:645px; overflow:hidden}
@@ -135,13 +135,13 @@ a:hover { text-decoration:underline}
 .vip_m{ float:left; width:302px; background:url(../images/vip_m.gif) repeat-y}
 .vip_m .tab_box{ width:240px; margin:0 auto ; border-color:#2c2c2c}
 .vip_m a{ display:inline-block; width:115px}
-/*YY���*/
+
 #yyguanggao{ width:309px; height:84px;}
 
 .footer{ padding-top:60px; padding-bottom:10px}
-/*------������ʽEnd---------*/
 
-/*�������*/
+
+
 #tc { background:url(../images/tc_bg.gif) no-repeat; width:323px; height:250px; position:relative; padding:110px 0 0 34px; color:#FFF; font-size:12px; overflow:hidden  }
 #tc a { color:#FFF; text-decoration:none }
 #tc a:hover { text-decoration:underline }
@@ -160,13 +160,13 @@ a:hover { text-decoration:underline}
 .tc_4 { text-align:left;  padding-top:15px; position:relative; left:-25px }
 .tc_4 a{ display:inline-block; width:82px; height:28px;  margin:0; padding:0}
 
-/*��Ƶ���� 2012-05-17*/
-		.radio{ background:#000000;position:absolute;z-index:999; top:600px; left:40%;width:295px;height:183px; padding:30px 10px 10px 10px; }
-		.radio a{ display:block;position:absolute; width:20px; height:20px; font-size:18px; line-height:18px; color:#fff;left:295px;top:0px; text-decoration:none; }
-		.radio a:hover{text-decoration:none; }
+
+.radio{ background:#000000;position:absolute;z-index:999; top:600px; left:40%;width:295px;height:183px; padding:30px 10px 10px 10px; }
+.radio a{ display:block;position:absolute; width:20px; height:20px; font-size:18px; line-height:18px; color:#fff;left:295px;top:0px; text-decoration:none; }
+.radio a:hover{text-decoration:none; }
 
 
-/*�ֲ� 2012-05-21*/
+
 .column{    background: url(../images/jt.jpg) no-repeat;height: 178px;overflow: hidden;padding-left: 10px;padding-top: 6px;position: relative; width: 613px;}
 .flash_tab {left: 9px;position: absolute;top: 0; }
 .flash_tab li { padding-right:2px; float:left;}

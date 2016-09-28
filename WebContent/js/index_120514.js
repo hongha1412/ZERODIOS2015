@@ -32,6 +32,9 @@ function tfchg(BTN, TXT) {
 }
 function dhmenuchg(obj, n) {
     var dhul = obj.getElementsByTagName("ul")[0];
+    if (dhul == null || dhul == undefined) {
+        return;
+    }
     dhul.style.display = n == 1 ? "block" : "none";
     obj.style.position = n == 1 ? "relative" : "";
 }

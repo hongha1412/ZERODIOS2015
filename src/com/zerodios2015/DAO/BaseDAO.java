@@ -34,7 +34,7 @@ public class BaseDAO extends JdbcDaoSupport {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      */
-    public String toQuery(Object o, List<Object> sqlParameter) 
+    public String toConditionQuery(Object o, List<Object> sqlParameter) 
             throws IllegalArgumentException, IllegalAccessException {
 
         // Check null object

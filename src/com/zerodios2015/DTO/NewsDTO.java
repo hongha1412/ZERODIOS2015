@@ -11,11 +11,16 @@ import java.util.Date;
 
 import com.zerodios2015.Utils.ZDStringUtils;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
  * 
  * @author HaVH-PC
  *
  */
+@Data
+@EqualsAndHashCode(callSuper=false)
 public class NewsDTO extends BaseFormDTO {
 
     /**
@@ -67,156 +72,6 @@ public class NewsDTO extends BaseFormDTO {
      * Version long
      */
     private long version;
-
-    /**
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * @param id
-     *            the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the category
-     */
-    public int getCategory() {
-        return category;
-    }
-
-    /**
-     * @param category
-     *            the category to set
-     */
-    public void setCategory(int category) {
-        this.category = category;
-    }
-
-    /**
-     * @return the title
-     */
-    public String getTitle() {
-        return title;
-    }
-
-    /**
-     * @param title
-     *            the title to set
-     */
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    /**
-     * @return the description
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * @param description
-     *            the description to set
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * @return the author
-     */
-    public int getAuthor() {
-        return author;
-    }
-
-    /**
-     * @param author
-     *            the author to set
-     */
-    public void setAuthor(int author) {
-        this.author = author;
-    }
-
-    /**
-     * @return the date
-     */
-    public Date getDate() {
-        return date;
-    }
-
-    /**
-     * @param date
-     *            the date to set
-     */
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    /**
-     * @return the remark
-     */
-    public int getRemark() {
-        return remark;
-    }
-
-    /**
-     * @param remark
-     *            the remark to set
-     */
-    public void setRemark(int remark) {
-        this.remark = remark;
-    }
-
-    /**
-     * @return the pin
-     */
-    public boolean isPin() {
-        return pin;
-    }
-
-    /**
-     * @param pin
-     *            the pin to set
-     */
-    public void setPin(boolean pin) {
-        this.pin = pin;
-    }
-
-    /**
-     * @return the status
-     */
-    public int isStatus() {
-        return status;
-    }
-
-    /**
-     * @param status
-     *            the status to set
-     */
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    /**
-     * @return the version
-     */
-    public long getVersion() {
-        return version;
-    }
-
-    /**
-     * @param version
-     *            the version to set
-     */
-    public void setVersion(long version) {
-        this.version = version;
-    }
 
     /**
      * Default constructor

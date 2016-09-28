@@ -13,11 +13,16 @@ import org.apache.struts.action.ActionForm;
 
 import com.zerodios2015.DTO.MenuDTO;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
  * 
  * @author HaVH-PC
  *
  */
+@Data
+@EqualsAndHashCode(callSuper=false)
 public class ActionFormBase extends ActionForm {
 
     /**
@@ -29,18 +34,4 @@ public class ActionFormBase extends ActionForm {
      * Menu list in database List<MenuDTO>
      */
     private List<MenuDTO> lsMenu;
-
-    /**
-     * @return the lsMenu
-     */
-    public List<MenuDTO> getLsMenu() {
-        return lsMenu;
-    }
-
-    /**
-     * @param lsMenu the lsMenu to set
-     */
-    public void setLsMenu(List<MenuDTO> lsMenu) {
-        this.lsMenu = lsMenu;
-    }
 }
