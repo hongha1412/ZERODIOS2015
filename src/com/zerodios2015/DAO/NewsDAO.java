@@ -24,8 +24,8 @@ public class NewsDAO extends BaseDAO {
     public List<NewsDTO> getNews(NewsDTO newsDTO, String condition, int max, int offset) throws Exception {
         List<NewsDTO> lsNews = new ArrayList<>();
 
-        List<Object> sqlParameter = new ArrayList<Object>();
-        StringBuilder sqlCommand = new StringBuilder();
+        sqlParameter = new ArrayList<Object>();
+        sqlCommand = new StringBuilder();
         sqlCommand.append("SELECT ");
         sqlCommand.append("    ID ");
         sqlCommand.append("    , CATEGORY ");

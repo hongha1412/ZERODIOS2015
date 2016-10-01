@@ -48,7 +48,7 @@ public class FilterLog implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         String requestURI = req.getRequestURI();
         if (requestURI.endsWith(".do") || !requestURI.substring(requestURI.lastIndexOf("/")).contains(".")) {
-            this.context.log(new Date() + " " + req.getRemoteAddr() + " Requested to " + req.getRequestURI());
+            this.context.log("[" + ZDStringUtils.formatDate(new Date()) + "] " + req.getRemoteAddr() + " Requested to " + req.getRequestURI());
         }
 
         // pass the request along the filter chain

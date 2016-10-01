@@ -1,8 +1,8 @@
 <aside class="bg-dark lter aside-md hidden-print hidden-xs" id="nav">
     <section class="vbox">
-        <header class="header bg-primary lter text-center clearfix">
+        <!-- <header class="header bg-primary lter text-center clearfix">
             <div class="btn-group">
-                <!-- <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project"><i class="fa fa-plus"></i></button>
+                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project"><i class="fa fa-plus"></i></button>
                 <div class="btn-group hidden-nav-xs">
                     <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
                     Switch Project
@@ -13,9 +13,9 @@
                         <li><a href="#">Another Project</a></li>
                         <li><a href="#">More Projects</a></li>
                     </ul>
-                </div> -->
+                </div>
             </div>
-        </header>
+        </header> -->
         <section class="w-f scrollable">
             <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
                 <!-- nav -->
@@ -31,44 +31,44 @@
                         </li>
                         <li >
                             <a href="#">
-                            <i class="fa fa-bullhorn icon">
-                            <b class="bg-success"></b>
-                            </i>
-                            <span class="pull-right">
-                            <i class="fa fa-angle-down text"></i>
-                            <i class="fa fa-angle-up text-active"></i>
-                            </span>
-                            <span>News Management</span>
+                                <i class="fa fa-bullhorn icon">
+                                    <b class="bg-success"></b>
+                                </i>
+                                <span class="pull-right">
+                                    <i class="fa fa-angle-down text"></i>
+                                    <i class="fa fa-angle-up text-active"></i>
+                                </span>
+                                <span>News Manager</span>
                             </a>
                             <ul class="nav lt">
                                 <li >
                                     <a href="#" >
-                                    <i class="fa fa-angle-right"></i>
-                                    <span>News List</span>
+                                        <i class="fa fa-angle-right"></i>
+                                        <span>News List</span>
                                     </a>
                                 </li>
                                 <li >
                                     <a href="#" >
-                                    <i class="fa fa-angle-right"></i>
-                                    <span>Update List</span>
+                                        <i class="fa fa-angle-right"></i>
+                                        <span>Update List</span>
                                     </a>
                                 </li>
                                 <li >
                                     <a href="#" >
-                                    <i class="fa fa-angle-right"></i>
-                                    <span>Event List</span>
+                                        <i class="fa fa-angle-right"></i>
+                                        <span>Event List</span>
                                     </a>
                                 </li>
                                 <li >
                                     <a href="#" >
-                                    <i class="fa fa-angle-right"></i>
-                                    <span>Attention List</span>
+                                        <i class="fa fa-angle-right"></i>
+                                        <span>Attention List</span>
                                     </a>
                                 </li>
                                 <li >
                                     <a href="#" >
-                                    <i class="fa fa-angle-right"></i>
-                                    <span>Experience</span>
+                                        <i class="fa fa-angle-right"></i>
+                                        <span>Experience</span>
                                     </a>
                                 </li>
                             </ul>
@@ -82,7 +82,7 @@
                             <i class="fa fa-angle-down text"></i>
                             <i class="fa fa-angle-up text-active"></i>
                             </span>
-                            <span>User Management</span>
+                            <span>User Manager</span>
                             </a>
                             <ul class="nav lt">
                                 <li >
@@ -102,7 +102,7 @@
                         <li >
                             <a href="#"  >
                             <i class="fa fa-money icon">
-                            <b class="bg-warning"></b>
+                            <b class="bg-primary"></b>
                             </i>
                             <span class="pull-right">
                             <i class="fa fa-angle-down text"></i>
@@ -128,7 +128,7 @@
                         <li >
                             <a href="#"  >
                             <i class="fa fa-bar-chart icon">
-                            <b class="bg-warning"></b>
+                            <b class="bg-info"></b>
                             </i>
                             <span class="pull-right">
                             <i class="fa fa-angle-down text"></i>
@@ -148,7 +148,7 @@
                         <li >
                             <a href="#">
                             <i class="fa fa-question-circle icon">
-                            <b class="bg-info"></b>
+                            <b class="bg-info dker"></b>
                             </i>
                             <span>Support</span>
                             </a>

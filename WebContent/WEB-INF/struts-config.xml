@@ -36,9 +36,8 @@
             name="logonForm" type="org.apache.struts.action.DynaActionForm"> <form-property 
             name="username" type="java.lang.String"/> <form-property name="password" 
             type="java.lang.String"/> </form-bean> end sample -->
-        <form-bean name="newsForm"
-            type="com.zerodios2015.form.NewsForm" />
-        <form-bean name="adminLoginForm" type="" />
+        <form-bean name="newsForm" type="com.zerodios2015.form.NewsForm" />
+        <form-bean name="admLoginForm" type="com.zerodios2015.form.AdmLoginForm" />
     </form-beans>
 
 
@@ -66,14 +65,17 @@
         <!-- Forwards to Welcome.jsp -->
         <action path="/Home" forward="/jsp/Home.jsp" />
 
-        <action path="/submitForm" name="inputForm"
-            type="com.zerodios2015.action.InformationAction">
-            <forward name="success" path="/struts1.jsp" />
-        </action>
+        <action path="/adm/Dashboard" forward="/jsp/management/dashboard.jsp" />
 
         <action path="/News" name="newsForm"
             type="com.zerodios2015.action.NewsAction">
             <forward name="news" path="/jsp/News/News.jsp" />
+        </action>
+
+        <action path="/adm/Login" name="admLoginForm" scope="request"
+            type="com.zerodios2015.action.AdmLoginAction">
+            <forward name="admLogin" path="/jsp/management/index.jsp" />
+            <forward name="admDashboard" path="/adm/Dashboard.do" redirect="true" />
         </action>
 
         <!-- sample input and input submit actions <action path="/Input" 

@@ -3,7 +3,7 @@
         <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
         <i class="fa fa-bars"></i>
         </a>
-        <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="images/logo.png" class="m-r-sm">ZeroDios</a>
+        <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="/jsp/management/images/logo.png" class="m-r-sm">ZeroDios</a>
         <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
         <i class="fa fa-cog"></i>
         </a>
@@ -17,7 +17,7 @@
             <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
                 <div class="wrapper lter m-t-n-xs">
                     <a href="#" class="thumb pull-left m-r">
-                    <img src="images/avatar.jpg" class="img-circle">
+                    <img src="/jsp/management/images/avatar.jpg" class="img-circle">
                     </a>
                     <div class="clear">
                         <a href="#"><span class="text-white font-bold">@Mike Mcalidek</a></span>
@@ -67,7 +67,7 @@
                     <div class="list-group list-group-alt animated fadeInRight">
                         <a href="#" class="media list-group-item">
                         <span class="pull-left thumb-sm">
-                        <img src="images/avatar.jpg" alt="John said" class="img-circle">
+                        <img src="/jsp/management/images/avatar.jpg" alt="John said" class="img-circle">
                         </span>
                         <span class="media-body block m-b-none">
                         Use awesome animate.css<br>
@@ -108,7 +108,7 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <span class="thumb-sm avatar pull-left">
-            <img src="images/avatar.jpg">
+            <img src="/jsp/management/images/avatar.jpg">
             </span>
             John.Smith <b class="caret"></b>
             </a>

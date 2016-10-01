@@ -7,7 +7,13 @@
  */
 package com.zerodios2015.Utils;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 
 /**
  * 
@@ -62,5 +68,48 @@ public class ZDStringUtils {
         Date date = new Date();
         date = (java.sql.Timestamp) o;
         return date;
+    }
+
+    /**
+     * Format java.util.Date to string yyyy/MM/dd hh:mm:ss
+     * 
+     * @param time
+     * @return
+     */
+    public static String formatDate(Date time) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+        return sdf.format(time);
+    }
+
+    /**
+     * Validate string email format
+     * 
+     * @param email
+     * @return <b>true</b>: email format valid / <b>false</b>: email format invalid
+     */
+    public static boolean validateEmail(String email) {
+        boolean rs = true;
+        try {
+            InternetAddress emailAddress = new InternetAddress(email);
+            emailAddress.validate();
+        } catch (AddressException e) {
+            rs = false;
+        }
+        return rs;
+    }
+
+    /**
+     * Create message string with resource text
+     * 
+     * @param resourceNameId
+     * @param resourceMessageId
+     * @return message string
+     */
+    public static String formatMessageResource(String resourceNameId, String... resourceMessageIds) {
+        List<String> messages = new ArrayList<>();
+        for (String resourceMsg : resourceMessageIds) {
+            messages.add(MessageProperties.getMessage(resourceMsg));
+        }
+        return String.format(MessageProperties.getMessage(resourceNameId), messages);
     }
 }

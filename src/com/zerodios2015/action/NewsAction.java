@@ -7,17 +7,16 @@
  */
 package com.zerodios2015.action;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.logging.Level;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.springframework.beans.BeanUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -46,13 +45,7 @@ public class NewsAction extends ActionBase {
         if (newsForm == null) {
             newsForm = new NewsForm();
         }
-        try {
-            BeanUtils.copyProperties(newsDTO, newsForm);
-        } catch (IllegalAccessException e) {
-            ZDLogUtils.log(Level.WARNING, this, e, ZDStringUtils.EMPTY);
-        } catch (InvocationTargetException e) {
-            ZDLogUtils.log(Level.WARNING, this, e, ZDStringUtils.EMPTY);
-        }
+        BeanUtils.copyProperties(newsForm, newsDTO);
 
         NewsOutVO outVO = new NewsOutVO();
 

@@ -10,9 +10,12 @@ package com.zerodios2015.DAO;
 import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
 
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
+import com.zerodios2015.Utils.ZDLogUtils;
 import com.zerodios2015.Utils.ZDStringUtils;
 
 /**
@@ -21,6 +24,10 @@ import com.zerodios2015.Utils.ZDStringUtils;
  *
  */
 public class BaseDAO extends JdbcDaoSupport {
+
+    List<Object> sqlParameter;
+    StringBuilder sqlCommand;
+
     public BaseDAO() {
         super();
     }
@@ -53,12 +60,12 @@ public class BaseDAO extends JdbcDaoSupport {
 
                 // Check for add comma
                 if (!query.toString().trim().equals("WHERE")) {
-                    query.append(",");
+                    query.append("AND ");
                 }
                 query.append("    ").append(f.getName().toUpperCase());
                 // Check type of property 
                 if (String.class.isAssignableFrom(f.getType())) {
-                    query.append(" LIKE ? ");
+                    query.append(" LIKE '%?%' ");
                 } else if (Integer.class.isAssignableFrom(f.getType()) || 
                         Date.class.isAssignableFrom(f.getType())) {
                     query.append(" = ? ");
@@ -76,5 +83,33 @@ public class BaseDAO extends JdbcDaoSupport {
         }
 
         return query.toString();
+    }
+
+    public Object parseObject(Map<String, Object> data, Object object) {
+        Object rs = null;
+        Class<?> c = object.getClass();
+
+        try {
+            rs = c.newInstance();
+        } catch (InstantiationException | IllegalAccessException ex) {
+            ZDLogUtils.log(Level.WARNING, this, ex, ex.getMessage());
+        }
+
+        for (String key : data.keySet()) {
+            while (c != null) {
+                try {
+                    Field f = c.getDeclaredField(key.toLowerCase());
+                    f.setAccessible(true);
+                    f.set(rs, f.getType().cast(data.get(key).toString()));
+                    break;
+                } catch (NoSuchFieldException nsfe) {
+                    // c = c.getSuperclass();
+                    break;
+                } catch (SecurityException | IllegalArgumentException | IllegalAccessException e) {
+                    ZDLogUtils.log(Level.WARNING, this, e, e.getMessage());
+                }
+            }
+        }
+        return rs;
     }
 }

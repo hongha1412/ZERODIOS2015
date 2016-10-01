@@ -25,7 +25,7 @@ public class AdmLoginForm extends ActionForm {
      */
     private static final long serialVersionUID = 1L;
 
-    private String userName;
+    public String email;
 
-    private String password;
+    public String password;
 }

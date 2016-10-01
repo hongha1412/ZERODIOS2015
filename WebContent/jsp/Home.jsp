@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<%@page import="com.zerodios2015.Utils.MessageProperties"%>
+<%@ page import="com.zerodios2015.Utils.MessageProperties"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"

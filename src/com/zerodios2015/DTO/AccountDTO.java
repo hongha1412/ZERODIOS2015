@@ -15,12 +15,40 @@ import lombok.Data;
  */
 @Data
 public class AccountDTO {
-
     private String id;
     private String name;
     private String password;
-    private String ip;
+    private String netbar_ip;
     private String vip;
     private String superPass;
     private String email;
+
+    /**
+     * Default constructor
+     */
+    public AccountDTO() {
+        super();
+        this.id = "";
+        this.name = "";
+    }
+
+    /**
+     * @param id
+     * @param name
+     * @param password
+     * @param ip
+     * @param vip
+     * @param superPass
+     * @param email
+     */
+    public AccountDTO(Object id, Object name, Object password, Object netbar_ip, Object vip, Object superPass, Object email) {
+        super();
+        this.id = id.toString();
+        this.name = name.toString();
+        this.password = password.toString();
+        this.netbar_ip = netbar_ip.toString();
+        this.vip = vip.toString();
+        this.superPass = superPass.toString();
+        this.email = email.toString();
+    }
 }

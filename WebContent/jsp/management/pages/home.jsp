@@ -266,7 +266,7 @@
                 <article id="comment-id-2" class="comment-reply">
                     <article class="comment-item">
                         <a class="pull-left thumb-sm">
-                        <img src="images/avatar_default.jpg" class="img-circle">
+                        <img src="/jsp/management/images/avatar_default.jpg" class="img-circle">
                         </a>
                         <section class="comment-body m-b-lg">
                             <header>
@@ -280,7 +280,7 @@
                     </article>
                     <article class="comment-item">
                         <a class="pull-left thumb-sm">
-                        <img src="images/avatar.jpg" class="img-circle">
+                        <img src="/jsp/management/images/avatar.jpg" class="img-circle">
                         </a>
                         <section class="comment-body m-b-lg">
                             <header>

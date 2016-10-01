@@ -2,17 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans 
-                           http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-    <bean id="infoDAO" class="com.zerodios2015.DAO.InformationDAO">
-        <property name="dataSource" ref="dataSource" />
-    </bean>
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="newsDAO" class="com.zerodios2015.DAO.NewsDAO">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
     <bean id="menuDAO" class="com.zerodios2015.DAO.MenuDAO">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="accountDAO" class="com.zerodios2015.DAO.AccountDAO">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
