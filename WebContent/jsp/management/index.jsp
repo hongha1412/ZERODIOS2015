@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <%@ page import="com.zerodios2015.Utils.MessageProperties"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.common-controls.com/cc/tags-template" prefix="template" %>
+<%@ taglib uri="http://zerodios2015.com/Utils/ZDTags" prefix="ZDTags" %>
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:com="http://xmlns.jcp.org/jsf/component" class="bg-dark">
@@ -15,10 +19,22 @@
   <section id="content" class="m-t-lg wrapper-md animated fadeInUp">    
     <div class="container aside-xxl">
       <a class="navbar-brand block" href="#">ZeroDios Management Portal</a>
-      <section>
+      <section id="message-area" class='<c:if test="${fn:length(messages) le 0}">hidden</c:if>'>
             <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <i class="fa fa-ban-circle"></i><strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+                <c:forEach items="${messages}" var="msg">
+                    <c:set var="dataBind" value="click: function(data, event) { forceError(\'${msg.controlName}\', \'${msg.message}\') }" />
+                    <div class="message-content" style="padding: 3px 0px 3px 0px" data-bind="<c:out escapeXml="false" value="${msg.controlName != '' ? dataBind : ''}" />">
+                    <i class="fa fa-ban"></i>
+                    <c:if test="${msg.controlName != '' }">
+                        <c:out escapeXml="false" value="<a href='#' class='alert-link'>" />
+                    </c:if> 
+                    <strong><c:out value="${msg.message}" /></strong>
+                    <c:if test="${msg.controlName != '' }">
+                        <c:out escapeXml="false" value="</a>" />
+                    </c:if>
+                    </div>
+                </c:forEach>
             </div>
       </section>
       <section class="panel panel-default bg-white m-t-lg">

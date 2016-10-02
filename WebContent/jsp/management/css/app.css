@@ -2237,7 +2237,7 @@ fieldset[disabled] .btn-gplus.active {
   color: #adbece;
 }
 .bg-dark a:hover {
-  color: #fff;
+  /* color: #fff; */
 }
 .bg-dark a.list-group-item:hover,
 .bg-dark a.list-group-item:focus {

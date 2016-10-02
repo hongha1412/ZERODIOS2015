@@ -131,7 +131,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="modal.lockme.html" data-toggle="ajaxModal" >Logout</a>
+                    <a href="Logout.do" data-toggle="ajaxModal" >Logout</a>
                 </li>
             </ul>
         </li>

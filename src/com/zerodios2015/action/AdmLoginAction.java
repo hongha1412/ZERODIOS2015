@@ -46,6 +46,8 @@ public class AdmLoginAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
 
         String resultPage = ADM_LOGIN;
+//        String msgJSON = ZDException.ZD_DEFAULT_EXCEPTION;
+
         List<MessageObject> messages = new ArrayList<>();
         if (GET_METHOD.equals(request.getMethod())) {
             if (request.getSession().getAttribute("accountInfo") != null &&
@@ -64,16 +66,16 @@ public class AdmLoginAction extends Action {
 
         // Validate email
         if (ZDStringUtils.isEmpty(loginForm.getEmail())) {
-            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("adm.Email", "msg.empty"), ControlName.EMAIL));
+            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("msg.empty", "adm.Email"), ControlName.EMAIL));
         } else if (!ZDStringUtils.validateEmail(loginForm.getEmail())) {
-            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("adm.Email", "msg.formatinvalid"), ControlName.EMAIL));
+            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("msg.formatinvalid", "adm.Email"), ControlName.EMAIL));
         }
         // Validate password
         if (ZDStringUtils.isEmpty(loginForm.getPassword())) {
-            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("adm.Password", "msg.empty"), ControlName.PASSWORD));
+            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("msg.empty", "adm.Password"), ControlName.PASSWORD));
         } else if (loginForm.getPassword().length() < 6 || 
                 loginForm.getPassword().toString().length() > 15) {
-            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("adm.Password", "6", "15"), ControlName.PASSWORD));
+            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("msg.lengthinvalid", "6", "15"), ControlName.PASSWORD));
         }
 
         if (messages.size() <= 0) {
@@ -93,12 +95,17 @@ public class AdmLoginAction extends Action {
                         resultPage = ADM_DASHBOARD;
                     }
                 }
-            } catch (IllegalArgumentException | IllegalAccessException e) {
+            } catch (Exception e) {
                 ZDLogUtils.log(Level.WARNING, this, e, e.getMessage());
                 messages.add(new MessageObject(MessageProperties.getMessage("msg.unknowerror"), ""));
             }
         }
 
+//        try {
+//            msgJSON = ZDStringUtils.toJSON(messages);
+//        } catch (IOException e) {
+//            ZDLogUtils.log(Level.WARNING, this, e, e.getMessage());
+//        }
         request.setAttribute("messages", messages);
 
         return mapping.findForward(resultPage);

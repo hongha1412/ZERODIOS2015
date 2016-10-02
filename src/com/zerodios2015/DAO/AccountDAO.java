@@ -28,7 +28,7 @@ public class AccountDAO extends BaseDAO {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      */
-    public String checkLogin(String email, String password) throws IllegalArgumentException, IllegalAccessException {
+    public String checkLogin(String email, String password) throws IllegalArgumentException, IllegalAccessException, Exception {
         String rs = "";
 
         sqlCommand = new StringBuilder();

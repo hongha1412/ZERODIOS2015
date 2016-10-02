@@ -13,6 +13,7 @@ package com.zerodios2015.Utils;
  *
  */
 public class ZDException {
+    public static final String ZD_DEFAULT_EXCEPTION = "{'message': '" + MessageProperties.getMessage("msg.unknowerror") + "', 'controlName' : ''}";
     public static final String ZDNEWSEXCEPTION001 = "Lỗi query database (getNews)";
     public static final String ZDNEWSEXCEPTION002 = "Lỗi database (getNews)";
 }

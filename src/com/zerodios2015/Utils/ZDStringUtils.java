@@ -7,6 +7,8 @@
  */
 package com.zerodios2015.Utils;
 
+import java.io.IOException;
+import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,6 +16,10 @@ import java.util.List;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * 
@@ -105,11 +111,34 @@ public class ZDStringUtils {
      * @param resourceMessageId
      * @return message string
      */
-    public static String formatMessageResource(String resourceNameId, String... resourceMessageIds) {
+    public static String formatMessageResource(String resourceMessageIds, String... params) {
         List<String> messages = new ArrayList<>();
-        for (String resourceMsg : resourceMessageIds) {
-            messages.add(MessageProperties.getMessage(resourceMsg));
+        for (String param : params) {
+            messages.add(MessageProperties.getMessage(param));
         }
-        return String.format(MessageProperties.getMessage(resourceNameId), messages);
+        return String.format(MessageProperties.getMessage(resourceMessageIds), messages);
+    }
+    
+    /**
+     * Convert object to JSON String
+     * 
+     * @param o Object to convert
+     * @return JSON String
+     * @throws IOException 
+     */
+    public static String toJSON(Object o) throws IOException {
+        if (o == null ||
+                (o.getClass().equals(ArrayList.class) && ((ArrayList<?>)o).size() <= 0)) {
+            return null;
+        }
+//        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+//        return ow.writeValueAsString(o);
+        StringWriter writer = new StringWriter();
+        JsonGenerator jgen = new JsonFactory().createGenerator(writer);
+        jgen.setCodec(new ObjectMapper());
+        jgen.writeObject(o);
+        jgen.close();
+        String rs = writer.toString().trim().replace("\"", "\\\"");
+        return rs;
     }
 }
