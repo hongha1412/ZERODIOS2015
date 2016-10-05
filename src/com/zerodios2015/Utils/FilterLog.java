@@ -8,7 +8,9 @@
 package com.zerodios2015.Utils;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -18,6 +20,11 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.zerodios2015.DTO.AccountDTO;
+import com.zerodios2015.DTO.MessageObject;
 
 /**
  * @author HaVH
@@ -26,6 +33,8 @@ import javax.servlet.http.HttpServletRequest;
 public class FilterLog implements Filter {
 
     private ServletContext context;
+    private final String LOGIN_URL = "/adm/Login.do";
+    private final String RELOG_URL = "/adm/relog";
 
     /* (non-Javadoc)
      * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
@@ -47,6 +56,20 @@ public class FilterLog implements Filter {
 
         HttpServletRequest req = (HttpServletRequest) request;
         String requestURI = req.getRequestURI();
+        if (requestURI.toLowerCase().startsWith("/adm") && !requestURI.toLowerCase().contains(LOGIN_URL.toLowerCase()) &&
+                !requestURI.toLowerCase().contains(RELOG_URL.toLowerCase())) {
+            HttpSession session = req.getSession();
+            AccountDTO accountInfo = (AccountDTO) session.getAttribute("accountInfo");
+            if (accountInfo == null || ZDStringUtils.isEmpty(accountInfo.getId())) {
+                List<MessageObject> messages = new ArrayList<>();
+                messages.add(new MessageObject("Please login first", ZDStringUtils.EMPTY));
+                session.setAttribute("sessionMessage", messages);
+                ((HttpServletResponse)response).sendRedirect(LOGIN_URL);
+                // RequestDispatcher dispatcher = request.getRequestDispatcher(LOGIN_URL);
+                // dispatcher.forward(request, response);
+                return;
+            }
+        }
         if (requestURI.endsWith(".do") || !requestURI.substring(requestURI.lastIndexOf("/")).contains(".")) {
             this.context.log("[" + ZDStringUtils.formatDate(new Date()) + "] " + req.getRemoteAddr() + " Requested to " + req.getRequestURI());
         }

@@ -65,7 +65,12 @@
         <!-- Forwards to Welcome.jsp -->
         <action path="/Home" forward="/jsp/Home.jsp" />
         <action path="/adm/Dashboard" forward="/jsp/management/dashboard.jsp" />
-        <action path="/adm/Logout" forward="/jsp/management/logout.jsp" />
+        <action path="/error" forward="/jsp/error.jsp" />
+
+        <action path="/adm/Logout" type="com.zerodios2015.action.AdmLogoutAction">
+            <forward name="success" path="/jsp/management/logout.jsp" />
+            <forward name="fail" path="/error.do" redirect="true" />
+        </action>
 
         <action path="/News" name="newsForm"
             type="com.zerodios2015.action.NewsAction">

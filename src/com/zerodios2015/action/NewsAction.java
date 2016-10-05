@@ -32,7 +32,7 @@ import com.zerodios2015.form.NewsForm;
  * @author HaVH-PC
  *
  */
-public class NewsAction extends ActionBase {
+public class NewsAction extends ActionBase implements ActionBaseInterface {
 
     public NewsAction() {
         super();

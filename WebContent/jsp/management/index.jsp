@@ -19,7 +19,7 @@
   <section id="content" class="m-t-lg wrapper-md animated fadeInUp">    
     <div class="container aside-xxl">
       <a class="navbar-brand block" href="#">ZeroDios Management Portal</a>
-      <section id="message-area" class='<c:if test="${fn:length(messages) le 0}">hidden</c:if>'>
+      <section id="message-area" class='<c:if test="${fn:length(messages) le 0 && fn:length(sessionMessage) le 0}">hidden</c:if>'>
             <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <c:forEach items="${messages}" var="msg">
@@ -35,6 +35,20 @@
                     </c:if>
                     </div>
                 </c:forEach>
+                <c:forEach items="${sessionMessage}" var="msg">
+                    <c:set var="dataBind" value="click: function(data, event) { forceError(\'${msg.controlName}\', \'${msg.message}\') }" />
+                    <div class="message-content" style="padding: 3px 0px 3px 0px" data-bind="<c:out escapeXml="false" value="${msg.controlName != '' ? dataBind : ''}" />">
+                    <i class="fa fa-ban"></i>
+                    <c:if test="${msg.controlName != '' }">
+                        <c:out escapeXml="false" value="<a href='#' class='alert-link'>" />
+                    </c:if> 
+                    <strong><c:out value="${msg.message}" /></strong>
+                    <c:if test="${msg.controlName != '' }">
+                        <c:out escapeXml="false" value="</a>" />
+                    </c:if>
+                    </div>
+                </c:forEach>
+                <c:remove var="sessionMessage" scope="session"/>
             </div>
       </section>
       <section class="panel panel-default bg-white m-t-lg">

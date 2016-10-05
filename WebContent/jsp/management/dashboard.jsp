@@ -4,6 +4,7 @@
   <jsp:include page="inc/header.jsp" />
 
   <title>ZeroDios Web Management</title>
+  <script src="/jsp/management/pagejs/dashboard.js" ></script>
 </head>
 <body class="">
   <section class="vbox">

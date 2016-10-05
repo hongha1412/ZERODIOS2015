@@ -32,6 +32,12 @@ public class AccountDTO {
         this.name = "";
     }
 
+    public AccountDTO(Object name, Object email) {
+        super();
+        this.email = email.toString();
+        this.name = name.toString();
+    }
+
     /**
      * @param id
      * @param name

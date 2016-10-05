@@ -124,8 +124,10 @@ if (typeof jQuery === 'undefined') {
     $parent.removeClass('in')
 
     function removeElement() {
-      // detach from parent, fire event then clean up data
-      $parent.detach().trigger('closed.bs.alert').remove()
+      $parent.fadeOut("slow", function() {
+          // detach from parent, fire event then clean up data
+          $parent.detach().trigger('closed.bs.alert').remove();
+      });
     }
 
     $.support.transition && $parent.hasClass('fade') ?

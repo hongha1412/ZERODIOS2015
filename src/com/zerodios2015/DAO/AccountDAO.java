@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.zerodios2015.DTO.AccountDTO;
+import com.zerodios2015.Utils.ZeroPasswordHash;
 
 /**
  * @author HaVH-PC
@@ -41,7 +42,7 @@ public class AccountDAO extends BaseDAO {
         sqlCommand.append("    EMAIL = ? ");
         sqlCommand.append("    AND PASSWORD = ? ");
         sqlParameter.add(email);
-        sqlParameter.add(password);
+        sqlParameter.add(ZeroPasswordHash.encrypt(password));
 
         List<Map<String, Object>> result = getJdbcTemplate().queryForList(sqlCommand.toString(), sqlParameter.toArray());
         if (result.size() > 0) {

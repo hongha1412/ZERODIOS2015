@@ -106,11 +106,11 @@
             </section>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a id="topmenu-user-dropdown" href="#" class="dropdown-toggle" data-toggle="dropdown">
             <span class="thumb-sm avatar pull-left">
             <img src="/jsp/management/images/avatar.jpg">
             </span>
-            John.Smith <b class="caret"></b>
+            ${accountInfo.name} <b class="caret"></b>
             </a>
             <ul class="dropdown-menu animated fadeInRight">
                 <span class="arrow top"></span>
