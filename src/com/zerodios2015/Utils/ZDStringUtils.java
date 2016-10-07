@@ -114,9 +114,13 @@ public class ZDStringUtils {
     public static String formatMessageResource(String resourceMessageIds, String... params) {
         List<String> messages = new ArrayList<>();
         for (String param : params) {
-            messages.add(MessageProperties.getMessage(param));
+            if (param.startsWith("\\")) {
+                messages.add(param.replace("\\", ""));
+            } else {
+                messages.add(MessageProperties.getMessage(param));
+            }
         }
-        return String.format(MessageProperties.getMessage(resourceMessageIds), messages);
+        return String.format(MessageProperties.getMessage(resourceMessageIds), messages.toArray());
     }
     
     /**

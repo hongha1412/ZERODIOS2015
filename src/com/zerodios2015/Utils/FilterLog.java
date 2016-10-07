@@ -35,6 +35,7 @@ public class FilterLog implements Filter {
     private ServletContext context;
     private final String LOGIN_URL = "/adm/Login.do";
     private final String RELOG_URL = "/adm/relog";
+    private final String LOGOUT_URL = "adm/Logout.do";
 
     /* (non-Javadoc)
      * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
@@ -57,7 +58,7 @@ public class FilterLog implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         String requestURI = req.getRequestURI();
         if (requestURI.toLowerCase().startsWith("/adm") && !requestURI.toLowerCase().contains(LOGIN_URL.toLowerCase()) &&
-                !requestURI.toLowerCase().contains(RELOG_URL.toLowerCase())) {
+                !requestURI.toLowerCase().contains(RELOG_URL.toLowerCase()) && !requestURI.toLowerCase().contains(LOGOUT_URL.toLowerCase())) {
             HttpSession session = req.getSession();
             AccountDTO accountInfo = (AccountDTO) session.getAttribute("accountInfo");
             if (accountInfo == null || ZDStringUtils.isEmpty(accountInfo.getId())) {

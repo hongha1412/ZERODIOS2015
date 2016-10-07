@@ -1,5 +1,6 @@
 <section class="vbox">
     <section class="scrollable padder">
+        <a data-bind="text: test"></a>
         <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
             <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
             <li class="active">Workset</li>
@@ -77,7 +78,7 @@
                             </div>
                             <div class="col-xs-3">
                                 <span class="h4 font-bold m-t block">7,230</span>
-                                <small class="text-muted m-b block">Customers</small>                        
+                                <small class="text-muted m-b block">Customers</small>
                             </div>
                         </div>
                     </footer>

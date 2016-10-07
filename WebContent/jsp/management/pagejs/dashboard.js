@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    var screenModel = new ScreenModel();
-    ko.applyBindings(screenModel);
+    var masterModel = new MasterModel();
+    ko.applyBindings(masterModel);
 });
 
-function ScreenModel() {
+function MasterModel() {
     var self = this;
 }

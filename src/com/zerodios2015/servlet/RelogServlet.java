@@ -53,7 +53,7 @@ public class RelogServlet extends HttpServlet {
                         messages.add(new MessageObject(ZDStringUtils.formatMessageResource("msg.empty", "adm.Password"), ControlName.PASSWORD));
                     } else if (password.length() < 6 || 
                             password.toString().length() > 15) {
-                        messages.add(new MessageObject(ZDStringUtils.formatMessageResource("msg.lengthinvalid", "6", "15"), ControlName.PASSWORD));
+                        messages.add(new MessageObject(ZDStringUtils.formatMessageResource("msg.lengthinvalid", "adm.Password", "\\6", "\\15"), ControlName.PASSWORD));
                     }
 
                     
@@ -72,7 +72,7 @@ public class RelogServlet extends HttpServlet {
                                 out.flush();
                                 return;
                             } else {
-                                messages.add(new MessageObject(MessageProperties.getMessage("msg.loginfail"), ZDStringUtils.EMPTY));
+                                messages.add(new MessageObject(MessageProperties.getMessage("msg.loginfail"), ControlName.PASSWORD));
                             }
                         } catch (Exception e) {
                             ZDLogUtils.log(Level.WARNING, this, e, e.getMessage());

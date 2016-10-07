@@ -1020,6 +1020,9 @@ if (typeof jQuery === 'undefined') {
 
   Modal.prototype.hide = function (e) {
     if (e) e.preventDefault()
+    if ($(this.$element).find("#logout-modal")[0] !== undefined) {
+        return;
+    }
 
     e = $.Event('hide.bs.modal')
 

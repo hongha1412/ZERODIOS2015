@@ -5,6 +5,10 @@
 
   <title>ZeroDios Web Management</title>
   <script src="/jsp/management/pagejs/dashboard.js" ></script>
+  <!-- Child view model import START -->
+  <!-- <script src="/jsp/management/pagejs/home.js"></script> -->
+  <script src="<c:out value='/jsp/management/pagejs/${page}.js' />"></script>
+  <!-- Child view model import END -->
 </head>
 <body class="">
   <section class="vbox">
