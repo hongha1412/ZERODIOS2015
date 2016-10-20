@@ -135,14 +135,13 @@ public class ZDStringUtils {
                 (o.getClass().equals(ArrayList.class) && ((ArrayList<?>)o).size() <= 0)) {
             return null;
         }
-//        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-//        return ow.writeValueAsString(o);
+
         StringWriter writer = new StringWriter();
         JsonGenerator jgen = new JsonFactory().createGenerator(writer);
         jgen.setCodec(new ObjectMapper());
         jgen.writeObject(o);
         jgen.close();
         String rs = writer.toString().trim().replace("\"", "\\\"");
-        return rs;
+        return rs.trim();
     }
 }

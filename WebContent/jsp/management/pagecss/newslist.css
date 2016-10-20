@@ -1,0 +1,7 @@
+.table-data-center {
+    text-align: center;
+}
+
+td[aria-describedby='news-table_table_title'] {
+    cursor: pointer;
+}

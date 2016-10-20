@@ -64,8 +64,9 @@
         <!-- Default "Welcome" action -->
         <!-- Forwards to Welcome.jsp -->
         <action path="/Home" forward="/jsp/Home.jsp" />
-        <action path="/adm/Dashboard" forward="/jsp/management/dashboard.jsp" />
         <action path="/error" forward="/jsp/error.jsp" />
+        <action path="/adm/Dashboard" forward="/jsp/management/pages/home.jsp" />
+        <action path="/adm/NewsList" forward="/jsp/management/pages/newslist.jsp" />
 
         <action path="/adm/Logout" type="com.zerodios2015.action.AdmLogoutAction">
             <forward name="success" path="/jsp/management/logout.jsp" />

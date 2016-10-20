@@ -56,7 +56,7 @@ public class BaseDAO extends JdbcDaoSupport {
             // Set access permission for this field
             f.setAccessible(true);
             // If this property not empty or null
-            if (!ZDStringUtils.isEmpty(f.get(o))) {
+            if (!ZDStringUtils.isEmpty(f.get(o)) && !f.getType().equals(boolean.class) && Integer.parseInt(f.get(o).toString()) != -1) {
 
                 // Check for add comma
                 if (!query.toString().trim().equals("WHERE")) {
@@ -69,6 +69,8 @@ public class BaseDAO extends JdbcDaoSupport {
                 } else if (Integer.class.isAssignableFrom(f.getType()) || 
                         Date.class.isAssignableFrom(f.getType())) {
                     query.append(" = ? ");
+                } else if (boolean.class.isAssignableFrom(f.getType())) {
+                    continue;
                 } else {
                     query.append(" = ? ");
                 }

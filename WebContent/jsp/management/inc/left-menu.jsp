@@ -21,8 +21,8 @@
                 <!-- nav -->
                 <nav class="nav-primary hidden-xs">
                     <ul class="nav">
-                        <li  class="active">
-                            <a href="#">
+                        <li>
+                            <a href="/adm/Dashboard.do">
                             <i class="fa fa-dashboard icon">
                             <b class="bg-danger"></b>
                             </i>
@@ -42,7 +42,7 @@
                             </a>
                             <ul class="nav lt">
                                 <li >
-                                    <a href="#" >
+                                    <a href="/adm/NewsList.do" >
                                         <i class="fa fa-angle-right"></i>
                                         <span>News List</span>
                                     </a>

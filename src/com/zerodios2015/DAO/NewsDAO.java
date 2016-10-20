@@ -40,10 +40,11 @@ public class NewsDAO extends BaseDAO {
         sqlCommand.append("FROM ");
         sqlCommand.append("    WEB_NEWS ");
 
-        StringBuilder sqlCondition = new StringBuilder(this.toConditionQuery(newsDTO, sqlParameter));
+        StringBuilder sqlCondition = new StringBuilder();
+        sqlCondition.append(this.toConditionQuery(newsDTO, sqlParameter));
         sqlCommand.append(sqlCondition);
-        sqlCommand.append("ORDER BY ID ASC");
-        if (max != 0 && offset != 0) {
+        sqlCommand.append("ORDER BY ID ASC ");
+        if (max > 0 && offset > 0) {
             sqlCommand.append("LIMIT ").append(offset).append(", ").append(max).append(" ");
         }
 

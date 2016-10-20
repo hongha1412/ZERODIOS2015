@@ -51,7 +51,7 @@ public class NewsDTO extends BaseFormDTO {
     /**
      * Posted date Date
      */
-    private Date date;
+    private String date;
 
     /**
      * News remark int
@@ -77,7 +77,26 @@ public class NewsDTO extends BaseFormDTO {
      * Default constructor
      */
     public NewsDTO() {
-        super();
+        this.id = -1;
+        this.author = -1;
+        this.category = -1;
+        this.status = -1;
+        this.remark = -1;
+        this.version = -1;
+    }
+
+    /**
+     * Constructor with status
+     * 
+     * @param status
+     */
+    public NewsDTO(int status) {
+        this.id = -1;
+        this.author = -1;
+        this.category = -1;
+        this.status = status;
+        this.remark = -1;
+        this.version = -1;
     }
 
     /**
@@ -101,7 +120,7 @@ public class NewsDTO extends BaseFormDTO {
         this.title = title;
         this.description = description;
         this.author = author;
-        this.date = date;
+        this.date = ZDStringUtils.formatDate(date);
         this.remark = remark;
         this.pin = pin;
         this.status = status;
@@ -129,7 +148,7 @@ public class NewsDTO extends BaseFormDTO {
         this.title = title.toString();
         this.description = description.toString();
         this.author = Integer.parseInt(author.toString());
-        this.date = ZDStringUtils.toDate(date);
+        this.date = ZDStringUtils.formatDate(ZDStringUtils.toDate(date));
         this.remark = Integer.parseInt(remark.toString());
         this.pin = (boolean)pin;
         this.status = (int)status;

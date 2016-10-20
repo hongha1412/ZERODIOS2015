@@ -1,9 +1,9 @@
 $(document).ready(function() {
     var screenModel = new ScreenModel();
-    ko.observable(screenModel);
+    ko.applyBindings(screenModel);
 });
 
 function ScreenModel() {
     var self = this;
-    self.test = ko.observable("test");
+    //alert(window.location.pathname);
 }
