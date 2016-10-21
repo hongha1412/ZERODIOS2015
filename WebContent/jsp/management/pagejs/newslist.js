@@ -54,6 +54,13 @@ ScreenModel.prototype.editNews = function() {
     alert(a);
 }
 
+function CurrentNews() {
+    var self = this;
+    self.title = ko.observable();
+    self.isPin = ko.observable(false);
+    self.remark = ko.observable(0);
+}
+
 function booleanFormatter(value, data, self) {
     var isCheck = value ? "checked='checked'" : "";
     var div = $("<div class='checkbox'>");

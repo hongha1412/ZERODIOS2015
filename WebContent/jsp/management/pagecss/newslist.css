@@ -5,3 +5,17 @@
 td[aria-describedby='news-table_table_title'] {
     cursor: pointer;
 }
+
+.modal-dialog {
+    width: 90%;
+    height: 90%;
+}
+
+.radio.inline,
+.checkbox.inline {
+    width: 65px;
+}
+
+input.form-control {
+    width: 100% !important;
+}
