@@ -44,9 +44,9 @@ public class NewsDTO extends BaseFormDTO {
     private String description;
 
     /**
-     * Author int
+     * Author String
      */
-    private int author;
+    private String author;
 
     /**
      * Posted date Date
@@ -78,7 +78,7 @@ public class NewsDTO extends BaseFormDTO {
      */
     public NewsDTO() {
         this.id = -1;
-        this.author = -1;
+        this.author = "";
         this.category = -1;
         this.status = -1;
         this.remark = -1;
@@ -92,7 +92,7 @@ public class NewsDTO extends BaseFormDTO {
      */
     public NewsDTO(int status) {
         this.id = -1;
-        this.author = -1;
+        this.author = "";
         this.category = -1;
         this.status = status;
         this.remark = -1;
@@ -113,7 +113,7 @@ public class NewsDTO extends BaseFormDTO {
      * @param status
      * @param version
      */
-    public NewsDTO(int id, int category, String title, String description, int author, Date date, int remark, boolean pin,
+    public NewsDTO(int id, int category, String title, String description, String author, Date date, int remark, boolean pin,
             int status, long version) {
         this.id = id;
         this.category = category;
@@ -147,7 +147,7 @@ public class NewsDTO extends BaseFormDTO {
         this.category = Integer.parseInt(category.toString());
         this.title = title.toString();
         this.description = description.toString();
-        this.author = Integer.parseInt(author.toString());
+        this.author = author.toString();
         this.date = ZDStringUtils.formatDate(ZDStringUtils.toDate(date));
         this.remark = Integer.parseInt(remark.toString());
         this.pin = (boolean)pin;

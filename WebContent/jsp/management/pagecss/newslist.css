@@ -19,3 +19,15 @@ td[aria-describedby='news-table_table_title'] {
 input.form-control {
     width: 100% !important;
 }
+
+.modal-body {
+    min-height: 520px;
+}
+
+.modal-content {
+    margin-bottom: 30px;
+}
+
+.btn {
+    margin-left: 5px;
+}

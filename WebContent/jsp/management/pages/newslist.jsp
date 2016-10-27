@@ -45,7 +45,7 @@
         <section class="vbox">
             <section class="scrollable padder">
               <section class="table">
-                <div id="news-table"></div>
+                <table id="news-table"></table>
               </section>
             </section>
           </section>
@@ -53,127 +53,145 @@
           <!-- Edit dialog -->
           <div class="modal fade" id="edit">
             <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h3 class="modal-title">Edit News</h3>
-                </div>
-                <div class="modal-body" data-bind="with: currentNews">
-                  
-                  <div class="form-inline">
-                    <h4 class="col-xs-1"><%=MessageProperties.getMessage("news.Title") %></h4>
-                    <input type="text" class="form-control" placeholder="Enter News Title" data-bind="value: title" />
-                  </div>
-                  <div class="line line-dashed line-lg pull-in"></div>
-                  <div class="form-group">
-                    <div class="col-lg-1">
-                        <h4><%=MessageProperties.getMessage("news.Remark") %>&nbsp;</h4>
+              <div class="modal-content" data-bind="with: currentNews">
+                <form data-validate="parsley" id="current-news-form">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h3 class="modal-title">Edit News</h3>
                     </div>
-                    <div id="remark-group" class="col-lg-10">
-                        <div class="radio inline">
-                            <label class="radio-custom">
-                                <input type="radio" name="remark" value="0" checked="checked" data-bind="checked: remark" />
-                                <i class="fa fa-circle-o checked"></i>
-                                <img src="/jsp/management/pageresources/none.svg" width="20px" height="20px" />
-                            </label>
-                        </div>
-                        <div class="radio inline">
-                            <label class="radio-custom">
-                                <input type="radio" name="remark" value="1" data-bind="checked: remark" />
-                                <i class="fa fa-circle-o"></i>
-                                <img src="/jsp/management/pageresources/new.svg" width="20px" height="20px" />
-                            </label>
-                        </div>
-                        <div class="radio inline">
-                            <label class="radio-custom">
-                                <input type="radio" name="remark" value="2" data-bind="checked: remark" />
-                                <i class="fa fa-circle-o"></i>
-                                <img src="/jsp/management/pageresources/hot.svg" width="20px" height="20px" />
-                            </label>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="line line-dashed line-lg pull-in"></div>
-                  <div class="form-group">
-                    <div id="pin-group">
-                        <h4 class="inline col-xs-1"><%=MessageProperties.getMessage("news.Pin") %>&nbsp;</h4>
-                        <div class="checkbox inline">
-                            <label class="checkbox-custom">
-                                <input type="checkbox" name="pin" data-bind="value: isPin" />
-                                <i class="fa fa-fw fa-square-o"></i>
-                                <%=MessageProperties.getMessage("global.Yes") %>
-                            </label>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="line line-dashed line-lg pull-in"></div>
-
-                  <!-- Start editor -->
-                  <div class="form-group">
-                      <h4 class="col-xs-12"><%=MessageProperties.getMessage("news.Content") %></h4>
-                      <div>
-                        <div class="btn-toolbar m-b-sm btn-editor" data-role="editor-toolbar" data-target="#editor">
-                          <div class="btn-group">
-                            <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
-                              <ul class="dropdown-menu">
-                              </ul>
-                          </div>
-                          <div class="btn-group">
-                            <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
-                              <ul class="dropdown-menu">
-                              <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
-                              <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
-                              <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
-                              </ul>
-                          </div>
-                          <div class="btn-group">
-                            <a class="btn btn-default btn-sm" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
-                            <a class="btn btn-default btn-sm" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
-                            <a class="btn btn-default btn-sm" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
-                            <a class="btn btn-default btn-sm" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
-                          </div>
-                          <div class="btn-group">
-                            <a class="btn btn-default btn-sm" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
-                            <a class="btn btn-default btn-sm" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>
-                            <a class="btn btn-default btn-sm" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
-                            <a class="btn btn-default btn-sm" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>
-                          </div>
-                          <div class="btn-group">
-                            <a class="btn btn-default btn-sm" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
-                            <a class="btn btn-default btn-sm" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
-                            <a class="btn btn-default btn-sm" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
-                            <a class="btn btn-default btn-sm" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
-                          </div>
-                          <div class="btn-group">
-                          <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="fa fa-link"></i></a>
-                            <div class="dropdown-menu">
-                              <div class="input-group m-l-xs m-r-xs">
-                                <input class="form-control input-sm" placeholder="URL" type="text" data-edit="createLink"/>
-                                <div class="input-group-btn">
-                                  <button class="btn btn-default btn-sm" type="button">Add</button>
-                                </div>
-                              </div>
-                            </div>
-                            <a class="btn btn-default btn-sm" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
-                          </div>
-                          
-                          <div class="btn-group" style="width:34px">
-                            <a class="btn btn-default btn-sm" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
-                            <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
-                          </div>
-                          <div class="btn-group">
-                            <a class="btn btn-default btn-sm" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
-                            <a class="btn btn-default btn-sm" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
-                          </div>
-                        </div>
-                        <div id="editor" class="form-control" style="overflow:scroll;height:150px;max-height:150px">
-                          Go ahead&hellip;
+                    <div class="modal-body">
+                      <div class="form-inline col-sm-12">
+                        <h4 class="col-sm-2"><%=MessageProperties.getMessage("news.Title") %></h4>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="Enter News Title" data-required="true" data-minlength="6" data-bind="value: title" />
                         </div>
                       </div>
-                    </div>
-                    <!-- End editor -->
+    
+                      <div class="line line-dashed line-lg pull-in col-sm-12"></div>
+                      <div class="form-inline col-sm-12">
+                        <div class="inline col-sm-2">
+                            <h4><%=MessageProperties.getMessage("news.Remark") %>&nbsp;</h4>
+                        </div>
+                        <div id="remark-group" class="inline control-group col-sm-10">
+                            <div class="radio inline col-sm-3-3">
+                                <label class="radio-custom">
+                                    <input type="radio" name="remark" value="0" data-bind="bsRadio: remark" />
+                                    <i class="fa fa-circle-o checked"></i>
+                                    <img src="/jsp/management/pageresources/none.svg" width="20px" height="20px" />
+                                </label>
+                            </div>
+                            <div class="radio inline col-sm-3-3">
+                                <label class="radio-custom">
+                                    <input type="radio" name="remark" value="1" data-bind="bsRadio: remark" />
+                                    <i class="fa fa-circle-o"></i>
+                                    <img src="/jsp/management/pageresources/new.svg" width="20px" height="20px" />
+                                </label>
+                            </div>
+                            <div class="radio inline col-sm-3-3">
+                                <label class="radio-custom">
+                                    <input type="radio" name="remark" value="2" data-bind="bsRadio: remark" />
+                                    <i class="fa fa-circle-o"></i>
+                                    <img src="/jsp/management/pageresources/hot.svg" width="20px" height="20px" />
+                                </label>
+                            </div>
+                        </div>
+                      </div>
+    
+                      <div class="line line-dashed line-lg pull-in col-sm-12"></div>
+                      <div class="form-inline col-sm-12">
+                        <div class="inline col-sm-2">
+                            <h4><%=MessageProperties.getMessage("news.Pin") %>&nbsp;</h4>
+                        </div>
+                        <div id="pin-group" class="inline control-group col-sm-10">
+                            <div class="checkbox inline">
+                                <label class="checkbox-custom">
+                                    <input type="checkbox" name="pin" data-bind="bsCheckbox: pin" />
+                                    <i class="fa fa-fw fa-square-o"></i>
+                                    <%=MessageProperties.getMessage("global.Yes") %>
+                                </label>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="line line-dashed line-lg pull-in col-sm-12"></div>
+    
+                      <!-- Start editor -->
+                      <div class="form-group">
+                          <h4 class="col-sm-12"><%=MessageProperties.getMessage("news.Content") %></h4>
+                          <div class="col-sm-12">
+                            <div class="btn-toolbar m-b-sm btn-editor" data-role="editor-toolbar" data-target="#editor">
+                              <div class="btn-group">
+                                <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                  </ul>
+                              </div>
+                              <div class="btn-group">
+                                <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                  <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+                                  <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+                                  <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+                                  </ul>
+                              </div>
+                              <div class="btn-group">
+                                <a class="btn btn-default btn-sm" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+                                <a class="btn btn-default btn-sm" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+                                <a class="btn btn-default btn-sm" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
+                                <a class="btn btn-default btn-sm" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
+                              </div>
+                              <div class="btn-group">
+                                <a class="btn btn-default btn-sm" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
+                                <a class="btn btn-default btn-sm" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>
+                                <a class="btn btn-default btn-sm" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
+                                <a class="btn btn-default btn-sm" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>
+                              </div>
+                              <div class="btn-group">
+                                <a class="btn btn-default btn-sm" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
+                                <a class="btn btn-default btn-sm" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
+                                <a class="btn btn-default btn-sm" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
+                                <a class="btn btn-default btn-sm" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
+                              </div>
+                              <div class="btn-group">
+                              <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="fa fa-link"></i></a>
+                                <div class="dropdown-menu">
+                                  <div class="input-group m-l-xs m-r-xs">
+                                    <input class="form-control input-sm" placeholder="URL" type="text" data-edit="createLink"/>
+                                    <div class="input-group-btn">
+                                      <button class="btn btn-default btn-sm" type="button">Add</button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <a class="btn btn-default btn-sm" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
+                              </div>
+                              
+                              <div class="btn-group" style="width:34px">
+                                <a class="btn btn-default btn-sm" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
+                                <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+                              </div>
+                              <div class="btn-group">
+                                <a class="btn btn-default btn-sm" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
+                                <a class="btn btn-default btn-sm" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
+                              </div>
+                            </div>
+                            <div id="editor" class="form-control" style="overflow:scroll;height:150px;max-height:150px" data-bind="bsTextarea: description" data-minlength="10" data-required="true">
+                            </div>
+                          </div>
+                     </div>
+                     <!-- End editor -->
 
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn btn-sm btn-success text-uc m-t-n-xs pull-right" data-bind="click: submit">
+                                <strong>Submit</strong>
+                            </button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button data-dismiss="modal" class="btn btn-sm btn-danger text-uc m-t-n-xs pull-left">
+                                <strong>Cancel</strong>
+                            </button>
+                        </div>
+                    </div>
+                </form>
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
           </div>
