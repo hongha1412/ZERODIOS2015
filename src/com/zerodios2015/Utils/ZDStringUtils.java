@@ -141,7 +141,7 @@ public class ZDStringUtils {
         jgen.setCodec(new ObjectMapper());
         jgen.writeObject(o);
         jgen.close();
-        String rs = writer.toString().trim().replace("\"", "\\\"");
+        String rs = writer.toString().trim().replace("\\", "\\\\").replace("\"", "\\\"");
         return rs.trim();
     }
 }

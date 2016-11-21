@@ -37,11 +37,12 @@ public class BaseDAO extends JdbcDaoSupport {
      * 
      * @param o Object query condition
      * @param sqlParameter List<Object> query parameter
+     * @param prefix alias of table
      * @return String query string
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      */
-    public String toConditionQuery(Object o, List<Object> sqlParameter) 
+    public String toConditionQuery(Object o, List<Object> sqlParameter, String prefix) 
             throws IllegalArgumentException, IllegalAccessException {
 
         // Check null object
@@ -56,13 +57,14 @@ public class BaseDAO extends JdbcDaoSupport {
             // Set access permission for this field
             f.setAccessible(true);
             // If this property not empty or null
-            if (!ZDStringUtils.isEmpty(f.get(o)) && !f.getType().equals(boolean.class) && Integer.parseInt(f.get(o).toString()) != -1) {
+            // if (!ZDStringUtils.isEmpty(f.get(o)) && !f.getType().equals(boolean.class) && Integer.parseInt(f.get(o).toString()) != -1) {
+            if (!ZDStringUtils.isEmpty(f.get(o))) {
 
                 // Check for add comma
                 if (!query.toString().trim().equals("WHERE")) {
                     query.append("AND ");
                 }
-                query.append("    ").append(f.getName().toUpperCase());
+                query.append("    ").append(ZDStringUtils.isEmpty(prefix) ? "" : prefix + ".").append(f.getName().toUpperCase());
                 // Check type of property 
                 if (String.class.isAssignableFrom(f.getType())) {
                     query.append(" LIKE '%?%' ");
@@ -87,6 +89,57 @@ public class BaseDAO extends JdbcDaoSupport {
         return query.toString();
     }
 
+    /**
+     * Create where statement from object's property
+     * 
+     * @param o Object query condition
+     * @param sqlParameter List<Object> query parameter
+     * @param prefix alias of table
+     * @throws IllegalArgumentException
+     * @throws IllegalAccessException
+     */
+    public String toConditionQuery(Object o, List<Object> sqlParameter) throws IllegalArgumentException, IllegalAccessException {
+        return toConditionQuery(o, sqlParameter, null);
+    }
+
+    /**
+     * Create Set clause for update statement
+     * 
+     * @param Object
+     * @param sqlParameter
+     * @return Set clause for update
+     * @throws IllegalAccessException 
+     * @throws IllegalArgumentException 
+     * @throws NumberFormatException 
+     */
+    public String toSetQuery(Object o, List<Object> sqlParameter) throws NumberFormatException, IllegalArgumentException, IllegalAccessException {
+
+        StringBuilder query = new StringBuilder();
+        for(Field f : o.getClass().getDeclaredFields()) {
+
+            // Set access permission for this field
+            f.setAccessible(true);
+            // If this property not empty or null
+            if (!ZDStringUtils.isEmpty(f.get(o))) {
+                if (query.indexOf("SET") < 0) {
+                    query.append("SET ");
+                }
+                query.append(f.getName().toUpperCase());
+                query.append(" = ?, ");
+                // Add value to list parameter
+                sqlParameter.add(f.get(o));
+            }
+        }
+        return query.substring(0, query.length() - 2).toString();
+    }
+
+    /**
+     * Parse map to object 
+     * 
+     * @param data
+     * @param object
+     * @return Object
+     */
     public Object parseObject(Map<String, Object> data, Object object) {
         Object rs = null;
         Class<?> c = object.getClass();
@@ -95,6 +148,7 @@ public class BaseDAO extends JdbcDaoSupport {
             rs = c.newInstance();
         } catch (InstantiationException | IllegalAccessException ex) {
             ZDLogUtils.log(Level.WARNING, this, ex, ex.getMessage());
+            return rs;
         }
 
         for (String key : data.keySet()) {

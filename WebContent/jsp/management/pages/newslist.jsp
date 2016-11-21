@@ -112,8 +112,24 @@
                             </div>
                         </div>
                       </div>
+
                       <div class="line line-dashed line-lg pull-in col-sm-12"></div>
-    
+                      <div class="form-inline col-sm-12">
+                        <div class="inline col-sm-2">
+                            <h4><%=MessageProperties.getMessage("news.Status") %>&nbsp;</h4>
+                        </div>
+                        <div id="pin-group" class="inline control-group col-sm-10">
+                            <div class="checkbox inline">
+                                <label class="checkbox-custom">
+                                    <input type="checkbox" name="pin" data-bind="bsCheckbox: status" />
+                                    <i class="fa fa-fw fa-square-o"></i>
+                                    <%=MessageProperties.getMessage("global.Yes") %>
+                                </label>
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="line line-dashed line-lg pull-in col-sm-12"></div>
                       <!-- Start editor -->
                       <div class="form-group">
                           <h4 class="col-sm-12"><%=MessageProperties.getMessage("news.Content") %></h4>
@@ -176,6 +192,7 @@
                             </div>
                           </div>
                      </div>
+                     <!-- <input type="button" data-bind="click: test" value="Test Button" /> -->
                      <!-- End editor -->
 
                     </div>

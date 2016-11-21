@@ -19,11 +19,9 @@ function ScreenModel() {
         self.editNews(id);
     }
 
-//    var param = {condition: "{\"id\": \"1\", \"status\": \"1\"}"};
     $.ajax({
         type: "POST",
         url: "/adm/newsservlet",
-//        data: param,
         async: true
     }).done(function(result) {
         var rs = $.parseJSON(result.replace(/\\/g, ''));
@@ -45,7 +43,7 @@ function ScreenModel() {
                 { headerText: "Remark", key: "remark", dataType: "string", columnCssClass: "table-data-center", width: "150px"},
                 { headerText: "Title", key: "title", dataType: "string"},
                 { headerText: "Author", key: "author", dataType: "string", width: "20%"},
-                { headerText: "Date", key: "date", dataType: "string", width: "18%"},
+                { headerText: "Date", key: "date", dataType: "date", format: "dd/MM/yyyy", width: "18%"},
                 { headerText: "Edit", key: "id", columnCssClass: "table-data-center", width: "100px", formatter: EditIcon},
                 { headerText: "Id", key: "id", dataType: "string", hidden: true}
             ],
@@ -96,6 +94,13 @@ ScreenModel.prototype.editNews = function(newsId) {
     
 }
 
+//CurrentNews.prototype.test = function() {
+//    var self = this;
+//    $.notify("Test", {
+//        timer: 999999
+//    });
+//}
+
 function CurrentNews() {
     var self = this;
     self.id = ko.observable();
@@ -106,7 +111,7 @@ function CurrentNews() {
     self.date = ko.observable();
     self.pin = ko.observable(false);
     self.remark = ko.observable(0);
-    self.status = ko.observable();
+    self.status = ko.observable(true);
     self.version = ko.observable();
 }
 
@@ -126,7 +131,21 @@ CurrentNews.prototype.load = function(newsObject) {
 
 CurrentNews.prototype.submit = function() {
     var self = this;
-    $("#current-news-form").parsley().validate();
+    if (!$("#current-news-form").parsley().validate()) {
+        return;
+    }
+
+    var param = {action: "update", condition: ko.toJSON(self), newsid: self.id()};
+    $.ajax({
+        type: "POST",
+        url: "/adm/newsservlet",
+        data: param,
+        async: true
+    }).done(function(result) {
+        if (result) {
+            $.notify("<strong>" + $.trim(result) + "</strong>");
+        }
+    });
 }
 
 CurrentNews.prototype.validate = function() {

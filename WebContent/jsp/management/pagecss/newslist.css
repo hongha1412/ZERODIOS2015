@@ -31,3 +31,12 @@ input.form-control {
 .btn {
     margin-left: 5px;
 }
+
+[data-notify="container"] {
+    width: 70%;
+}
+
+[data-notify="container"].alert {
+    font-size: 100%;
+    text-align: center;
+}

@@ -9,6 +9,8 @@ package com.zerodios2015.DTO;
 
 import java.util.Date;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 import com.zerodios2015.Utils.ZDStringUtils;
 
 import lombok.Data;
@@ -24,14 +26,14 @@ import lombok.EqualsAndHashCode;
 public class NewsDTO extends BaseFormDTO {
 
     /**
-     * News id int
+     * News id Integer
      */
-    private int id;
+    private Integer id;
 
     /**
-     * News category int
+     * News category Integer
      */
-    private int category;
+    private Integer category;
 
     /**
      * News title String
@@ -51,38 +53,38 @@ public class NewsDTO extends BaseFormDTO {
     /**
      * Posted date Date
      */
-    private String date;
+    private Date date;
 
     /**
-     * News remark int
+     * News remark Integer
      */
-    private int remark;
+    private Integer remark;
 
     /**
-     * Is this pin news int
+     * Is this pin news Integer
      */
-    private boolean pin;
+    private Boolean pin;
 
     /**
-     * Is this enws available int
+     * Is this enws available Integer
      */
-    private int status;
+    private Integer status;
 
     /**
      * Version long
      */
-    private long version;
+    private Long version;
 
     /**
      * Default constructor
      */
     public NewsDTO() {
-        this.id = -1;
-        this.author = "";
-        this.category = -1;
-        this.status = -1;
-        this.remark = -1;
-        this.version = -1;
+        this.id = null;
+        this.author = null;
+        this.category = null;
+        this.status = null;
+        this.remark = null;
+        this.version = null;
     }
 
     /**
@@ -90,13 +92,13 @@ public class NewsDTO extends BaseFormDTO {
      * 
      * @param status
      */
-    public NewsDTO(int status) {
-        this.id = -1;
-        this.author = "";
-        this.category = -1;
+    public NewsDTO(Integer status) {
+        this.id = null;
+        this.author = null;
+        this.category = null;
         this.status = status;
-        this.remark = -1;
-        this.version = -1;
+        this.remark = null;
+        this.version = null;
     }
 
     /**
@@ -120,7 +122,7 @@ public class NewsDTO extends BaseFormDTO {
         this.title = title;
         this.description = description;
         this.author = author;
-        this.date = ZDStringUtils.formatDate(date);
+        this.date = date;
         this.remark = remark;
         this.pin = pin;
         this.status = status;
@@ -143,15 +145,15 @@ public class NewsDTO extends BaseFormDTO {
      */
     public NewsDTO(Object id, Object category, Object title, Object description, Object author, Object date,
             Object remark, Object pin, Object status, Object version) {
-        this.id = Integer.parseInt(id.toString());
-        this.category = Integer.parseInt(category.toString());
-        this.title = title.toString();
-        this.description = description.toString();
-        this.author = author.toString();
-        this.date = ZDStringUtils.formatDate(ZDStringUtils.toDate(date));
-        this.remark = Integer.parseInt(remark.toString());
-        this.pin = (boolean)pin;
-        this.status = (int)status;
-        this.version = Long.parseLong(version.toString());
+        this.id = (Integer) id;
+        this.category = (Integer) category;
+        this.title = (String) title;
+        this.description = StringEscapeUtils.escapeHtml((String) description);
+        this.author = (String) author;
+        this.date = ZDStringUtils.toDate(date);
+        this.remark = (Integer) remark;
+        this.pin = (Boolean) pin;
+        this.status = (Integer) status;
+        this.version = (Long) version;
     }
 }

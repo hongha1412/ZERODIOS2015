@@ -37,7 +37,7 @@
                                         </a>
                                     </td>
                                     <td class=""><c:out value="${news.author}" /></td>
-                                    <td class=""><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${news.date}" /></td>
+                                    <td class=""><fmt:formatDate pattern="dd/MM/yyyy" value="${news.date}" /></td>
                                 </tr>
                             </c:forEach>
                         </c:if>

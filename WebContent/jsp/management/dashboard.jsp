@@ -27,13 +27,6 @@
                 el = undefined;
             }
         }
-        /* if ($(el).parent("li") !== undefined) {
-            $(el).parent("li").addClass("active");
-        }
-        if ($(el).parent("li") !== undefined && $(el).parent("li").parent("ul") !== undefined &&
-                $(el).parent("li").parent("ul").parent("li") !== undefined) {
-            $(el).parent("li").parent("ul").parent("li").addClass("active");
-        } */
     });
   </script>
 </head>

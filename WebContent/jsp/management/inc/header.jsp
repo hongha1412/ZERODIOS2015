@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="/jsp/management/js/calendar/bootstrap_calendar.css" type="text/css" />
 <link rel="stylesheet" href="/jsp/management/css/app.css" type="text/css" />
 <script src="/jsp/management/js/jquery.min.js"></script>
+<!-- Notify -->
+<script src="/js/bootstrap-notify/bootstrap-notify.js"></script>
 <!-- Bootstrap -->
 <script src="/jsp/management/js/bootstrap.js"></script>
 <!-- App -->

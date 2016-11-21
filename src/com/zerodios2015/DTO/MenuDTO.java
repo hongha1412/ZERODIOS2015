@@ -24,7 +24,7 @@ public class MenuDTO {
     /**
      * id int
      */
-    private int id;
+    private Integer id;
 
     /**
      * name String
@@ -34,7 +34,7 @@ public class MenuDTO {
     /**
      * int
      */
-    private int parent;
+    private Integer parent;
 
     /**
      * link String
@@ -44,17 +44,17 @@ public class MenuDTO {
     /**
      * level int
      */
-    private int level;
+    private Integer level;
 
     /**
      * status int
      */
-    private int status;
+    private Integer status;
 
     /**
      * version int
      */
-    private long version;
+    private Long version;
 
     /**
      * List<MenuDTO>
@@ -69,7 +69,7 @@ public class MenuDTO {
         this.name = "";
         this.link = "#";
         this.status = 1;
-        this.version = 0;
+        this.version = new Long(0);
         this.lsChild = new ArrayList<>();
     }
 
