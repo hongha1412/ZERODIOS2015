@@ -31,7 +31,10 @@
 <script src="/jsp/management/js/parsley/parsley.min.js"></script>
 <script src="/jsp/management/js/parsley/parsley.extend.js"></script>
 <script src="/js/knockout-3.4.0.js"></script>
+<script src="/js/knockout.mapping-latest.js"></script>
 <script src="/js/jquery.blockUI.js"></script>
+<!-- Project utils -->
+<script src="/js/ZDUtils.js"></script>
 <!--[if lt IE 9]>
   <script src="/jsp/management/js/ie/html5shiv.js"></script>
   <script src="/jsp/management/js/ie/respond.min.js"></script>

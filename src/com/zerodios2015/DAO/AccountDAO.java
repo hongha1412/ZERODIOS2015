@@ -52,6 +52,14 @@ public class AccountDAO extends BaseDAO {
         return rs;
     }
 
+    /**
+     * Get account information
+     * 
+     * @param id
+     * @return AccountDTO
+     * @throws IllegalArgumentException
+     * @throws IllegalAccessException
+     */
     public AccountDTO getAccountInfo(String id) throws IllegalArgumentException, IllegalAccessException {
         AccountDTO account = new AccountDTO();
         account.setId(id);
@@ -83,4 +91,6 @@ public class AccountDAO extends BaseDAO {
 
         return account;
     }
+
+    
 }

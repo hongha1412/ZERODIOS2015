@@ -5,7 +5,7 @@
  * @author: HaVH
  *
  */
-package com.zerodios2015.action;
+package com.zerodios2015.Action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -36,8 +36,8 @@
             name="logonForm" type="org.apache.struts.action.DynaActionForm"> <form-property 
             name="username" type="java.lang.String"/> <form-property name="password" 
             type="java.lang.String"/> </form-bean> end sample -->
-        <form-bean name="newsForm" type="com.zerodios2015.form.NewsForm" />
-        <form-bean name="admLoginForm" type="com.zerodios2015.form.AdmLoginForm" />
+        <form-bean name="newsForm" type="com.zerodios2015.Form.NewsForm" />
+        <form-bean name="admLoginForm" type="com.zerodios2015.Form.AdmLoginForm" />
     </form-beans>
 
 
@@ -68,18 +68,18 @@
         <action path="/adm/Dashboard" forward="/jsp/management/pages/home.jsp" />
         <action path="/adm/NewsList" forward="/jsp/management/pages/newslist.jsp" />
 
-        <action path="/adm/Logout" type="com.zerodios2015.action.AdmLogoutAction">
+        <action path="/adm/Logout" type="com.zerodios2015.Action.AdmLogoutAction">
             <forward name="success" path="/jsp/management/logout.jsp" />
             <forward name="fail" path="/error.do" redirect="true" />
         </action>
 
         <action path="/News" name="newsForm"
-            type="com.zerodios2015.action.NewsAction">
+            type="com.zerodios2015.Action.NewsAction">
             <forward name="news" path="/jsp/News/News.jsp" />
         </action>
 
         <action path="/adm/Login" name="admLoginForm" scope="request"
-            type="com.zerodios2015.action.AdmLoginAction">
+            type="com.zerodios2015.Action.AdmLoginAction">
             <forward name="admLogin" path="/jsp/management/index.jsp" />
             <forward name="admDashboard" path="/adm/Dashboard.do" redirect="true" />
         </action>

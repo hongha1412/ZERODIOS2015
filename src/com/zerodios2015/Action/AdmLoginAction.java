@@ -5,7 +5,7 @@
  * @author: HaVH
  *
  */
-package com.zerodios2015.action;
+package com.zerodios2015.Action;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +25,11 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import com.zerodios2015.DAO.AccountDAO;
 import com.zerodios2015.DTO.AccountDTO;
 import com.zerodios2015.DTO.MessageObject;
+import com.zerodios2015.Form.AdmLoginForm;
 import com.zerodios2015.Utils.ControlName;
 import com.zerodios2015.Utils.MessageProperties;
 import com.zerodios2015.Utils.ZDLogUtils;
-import com.zerodios2015.Utils.ZDStringUtils;
-import com.zerodios2015.form.AdmLoginForm;
+import com.zerodios2015.Utils.ZDUtils;
 
 /**
  * @author HaVH
@@ -49,7 +49,7 @@ public class AdmLoginAction extends Action implements ActionBaseInterface {
         List<MessageObject> messages = new ArrayList<>();
         if (GET_METHOD.equals(request.getMethod())) {
             if (request.getSession().getAttribute("accountInfo") != null &&
-                    (!ZDStringUtils.isEmpty(((AccountDTO)request.getSession().getAttribute("accountInfo")).getId()))) {
+                    (!ZDUtils.isEmpty(((AccountDTO)request.getSession().getAttribute("accountInfo")).getId()))) {
                 resultPage = ADM_DASHBOARD;
             }
             return mapping.findForward(resultPage);
@@ -63,17 +63,17 @@ public class AdmLoginAction extends Action implements ActionBaseInterface {
         BeanUtils.copyProperties(loginForm, loginDetail);
 
         // Validate email
-        if (ZDStringUtils.isEmpty(loginForm.getEmail())) {
-            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("msg.empty", "adm.Email"), ControlName.EMAIL));
-        } else if (!ZDStringUtils.validateEmail(loginForm.getEmail())) {
-            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("msg.formatinvalid", "adm.Email"), ControlName.EMAIL));
+        if (ZDUtils.isEmpty(loginForm.getEmail())) {
+            messages.add(new MessageObject(ZDUtils.formatMessageResource("msg.empty", "adm.Email"), ControlName.EMAIL));
+        } else if (!ZDUtils.validateEmail(loginForm.getEmail())) {
+            messages.add(new MessageObject(ZDUtils.formatMessageResource("msg.formatinvalid", "adm.Email"), ControlName.EMAIL));
         }
         // Validate password
-        if (ZDStringUtils.isEmpty(loginForm.getPassword())) {
-            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("msg.empty", "adm.Password"), ControlName.PASSWORD));
+        if (ZDUtils.isEmpty(loginForm.getPassword())) {
+            messages.add(new MessageObject(ZDUtils.formatMessageResource("msg.empty", "adm.Password"), ControlName.PASSWORD));
         } else if (loginForm.getPassword().length() < 6 || 
                 loginForm.getPassword().toString().length() > 15) {
-            messages.add(new MessageObject(ZDStringUtils.formatMessageResource("msg.lengthinvalid", "6", "15"), ControlName.PASSWORD));
+            messages.add(new MessageObject(ZDUtils.formatMessageResource("msg.lengthinvalid", "6", "15"), ControlName.PASSWORD));
         }
 
         if (messages.size() <= 0) {
@@ -82,12 +82,12 @@ public class AdmLoginAction extends Action implements ActionBaseInterface {
 
             try {
                 String userId = dao.checkLogin(loginForm.getEmail(), loginForm.getPassword());
-                if (ZDStringUtils.isEmpty(userId)) {
-                    messages.add(new MessageObject(MessageProperties.getMessage("msg.loginfail"), ZDStringUtils.EMPTY));
+                if (ZDUtils.isEmpty(userId)) {
+                    messages.add(new MessageObject(MessageProperties.getMessage("msg.loginfail"), ZDUtils.EMPTY));
                 } else {
                     AccountDTO accountInfo = dao.getAccountInfo(userId);
-                    if (accountInfo == null || ZDStringUtils.isEmpty(accountInfo.getId())) {
-                        messages.add(new MessageObject(MessageProperties.getMessage("msg.accountfail"), ZDStringUtils.EMPTY));
+                    if (accountInfo == null || ZDUtils.isEmpty(accountInfo.getId())) {
+                        messages.add(new MessageObject(MessageProperties.getMessage("msg.accountfail"), ZDUtils.EMPTY));
                     } else {
                         request.getSession().setAttribute("accountInfo", accountInfo);
                         resultPage = ADM_DASHBOARD;
@@ -95,7 +95,7 @@ public class AdmLoginAction extends Action implements ActionBaseInterface {
                 }
             } catch (Exception e) {
                 ZDLogUtils.log(Level.WARNING, this, e, e.getMessage());
-                messages.add(new MessageObject(MessageProperties.getMessage("msg.unknowerror"), ZDStringUtils.EMPTY));
+                messages.add(new MessageObject(MessageProperties.getMessage("msg.unknowerror"), ZDUtils.EMPTY));
             }
         }
 

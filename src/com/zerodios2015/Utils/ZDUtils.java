@@ -17,6 +17,8 @@ import java.util.List;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,7 +28,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author HaVH-PC
  *
  */
-public class ZDStringUtils {
+public class ZDUtils {
 
     public static final String EMPTY = "";
 
@@ -141,7 +143,27 @@ public class ZDStringUtils {
         jgen.setCodec(new ObjectMapper());
         jgen.writeObject(o);
         jgen.close();
-        String rs = writer.toString().trim().replace("\\", "\\\\").replace("\"", "\\\"");
+        String rs = writer.toString().trim().replace("\"", "\\\""); //.replace("\\", "\\\\");
         return rs.trim();
+    }
+
+    /**
+     * Encode unicode string for save to database
+     * 
+     * @param str
+     * @return
+     */
+    public static String escapeDB(String str) {
+        return isEmpty(str) ? EMPTY : StringEscapeUtils.escapeJava(str);
+    }
+
+    /**
+     * Decode unicode database string for view
+     * 
+     * @param str
+     * @return
+     */
+    public static String unEscapeDB(String str) {
+        return isEmpty(str) ? EMPTY : StringEscapeUtils.unescapeJava(str);
     }
 }

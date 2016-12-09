@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import com.zerodios2015.Utils.ZDLogUtils;
-import com.zerodios2015.Utils.ZDStringUtils;
+import com.zerodios2015.Utils.ZDUtils;
 
 /**
  * 
@@ -47,7 +47,7 @@ public class BaseDAO extends JdbcDaoSupport {
 
         // Check null object
         if (o == null) {
-            return "";
+            return ZDUtils.EMPTY;
         }
 
         StringBuilder query = new StringBuilder("WHERE ");
@@ -58,13 +58,13 @@ public class BaseDAO extends JdbcDaoSupport {
             f.setAccessible(true);
             // If this property not empty or null
             // if (!ZDStringUtils.isEmpty(f.get(o)) && !f.getType().equals(boolean.class) && Integer.parseInt(f.get(o).toString()) != -1) {
-            if (!ZDStringUtils.isEmpty(f.get(o))) {
+            if (!ZDUtils.isEmpty(f.get(o))) {
 
                 // Check for add comma
                 if (!query.toString().trim().equals("WHERE")) {
                     query.append("AND ");
                 }
-                query.append("    ").append(ZDStringUtils.isEmpty(prefix) ? "" : prefix + ".").append(f.getName().toUpperCase());
+                query.append("    ").append(ZDUtils.isEmpty(prefix) ? "" : prefix + ".").append(f.getName().toUpperCase());
                 // Check type of property 
                 if (String.class.isAssignableFrom(f.getType())) {
                     query.append(" LIKE '%?%' ");
@@ -90,7 +90,8 @@ public class BaseDAO extends JdbcDaoSupport {
     }
 
     /**
-     * Create where statement from object's property
+     * Create where statement from object's property<br/>
+     * If object's property is null, skip that condition
      * 
      * @param o Object query condition
      * @param sqlParameter List<Object> query parameter
@@ -120,7 +121,7 @@ public class BaseDAO extends JdbcDaoSupport {
             // Set access permission for this field
             f.setAccessible(true);
             // If this property not empty or null
-            if (!ZDStringUtils.isEmpty(f.get(o))) {
+            if (!ZDUtils.isEmpty(f.get(o))) {
                 if (query.indexOf("SET") < 0) {
                     query.append("SET ");
                 }

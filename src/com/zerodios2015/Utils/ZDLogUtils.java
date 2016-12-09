@@ -22,11 +22,12 @@ public class ZDLogUtils {
     }
 
     public static void log(Level level, Object o, Exception e, String message) {
-        if (ZDStringUtils.isEmpty(message)) {
-            Logger.getGlobal().log(level, ZDStringUtils.formatDate(new Date()) + " Exception occur at " + o.getClass().getName() + ": " + e.getMessage());
-            e.printStackTrace();
+        if (ZDUtils.isEmpty(message)) {
+            Logger.getGlobal().log(level, ZDUtils.formatDate(new Date()) + " Exception occur at " + o.getClass().getName() + ": " + e.getMessage());
         } else {
-            Logger.getGlobal().log(level, ZDStringUtils.formatDate(new Date()) + " " + message);
+            Logger.getGlobal().log(level, ZDUtils.formatDate(new Date()) + " Exception occur at " + o.getClass().getName() + ": " + message);
         }
+
+        e.printStackTrace();
     }
 }

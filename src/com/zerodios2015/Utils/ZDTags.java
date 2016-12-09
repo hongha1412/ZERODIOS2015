@@ -54,11 +54,11 @@ public class ZDTags extends SimpleTagSupport {
         String listHeader = TableProperties.getMessage(tableName);
         String listHidden = TableProperties.getMessage(tableName + ".hidden");
 
-        if (ZDStringUtils.isNotEmpty(listHeader)) {
+        if (ZDUtils.isNotEmpty(listHeader)) {
             List<String> lsHeader = Arrays.asList(listHeader.split(","));
             List<String> lsHidden = new ArrayList<>();
 
-            if (ZDStringUtils.isNotEmpty(listHidden)) {
+            if (ZDUtils.isNotEmpty(listHidden)) {
                 lsHidden = Arrays.asList(listHidden.split(","));
             }
 

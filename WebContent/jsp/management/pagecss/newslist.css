@@ -21,7 +21,7 @@ input.form-control {
 }
 
 .modal-body {
-    min-height: 520px;
+    min-height: 720px;
 }
 
 .modal-content {
@@ -39,4 +39,8 @@ input.form-control {
 [data-notify="container"].alert {
     font-size: 100%;
     text-align: center;
+}
+
+.panel {
+    margin-top: 15px;
 }

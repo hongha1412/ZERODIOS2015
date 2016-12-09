@@ -5,7 +5,7 @@
  * @author: HaVH-PC
  *
  */
-package com.zerodios2015.action;
+package com.zerodios2015.Action;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -22,10 +22,10 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.zerodios2015.DAO.NewsDAO;
 import com.zerodios2015.DTO.NewsDTO;
+import com.zerodios2015.Form.NewsForm;
 import com.zerodios2015.Utils.ZDLogUtils;
-import com.zerodios2015.Utils.ZDStringUtils;
+import com.zerodios2015.Utils.ZDUtils;
 import com.zerodios2015.VO.NewsOutVO;
-import com.zerodios2015.form.NewsForm;
 
 /**
  * 
@@ -39,6 +39,7 @@ public class NewsAction extends ActionBase implements ActionBaseInterface {
     }
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
+        long start = System.currentTimeMillis();
         NewsForm newsForm = (NewsForm) form;
         NewsDTO newsDTO = new NewsDTO();
 
@@ -53,9 +54,10 @@ public class NewsAction extends ActionBase implements ActionBaseInterface {
             outVO.setLsMenu(getMenu(request));
             outVO.setLsNews(getNews(request));
         } catch (Exception e) {
-            ZDLogUtils.log(Level.WARNING, this, e, ZDStringUtils.EMPTY);
+            ZDLogUtils.log(Level.WARNING, this, e, ZDUtils.EMPTY);
         }
         request.setAttribute("outVO", outVO);
+        System.out.println("Init time: " + (System.currentTimeMillis() - start));
 
         return mapping.findForward("news");
     }
@@ -65,7 +67,7 @@ public class NewsAction extends ActionBase implements ActionBaseInterface {
         NewsDAO newsDAO = (NewsDAO) ctx.getBean("newsDAO");
         List<NewsDTO> lsNews = null;
 
-        lsNews = newsDAO.getNews(null, ZDStringUtils.EMPTY, Integer.MAX_VALUE, 0);
+        lsNews = newsDAO.getNews(null, Integer.MAX_VALUE, 0);
 
         return lsNews;
     }

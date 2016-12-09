@@ -66,7 +66,7 @@ public class ZDThread extends Thread {
     }
 
     public boolean checkValid() {
-        if (this.mainThread == null || ZDStringUtils.isEmpty(runMethod)) {
+        if (this.mainThread == null || ZDUtils.isEmpty(runMethod)) {
             return false;
         }
         try {

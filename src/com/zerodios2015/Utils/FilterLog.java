@@ -55,15 +55,17 @@ public class FilterLog implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
 
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
         HttpServletRequest req = (HttpServletRequest) request;
         String requestURI = req.getRequestURI();
         if (requestURI.toLowerCase().startsWith("/adm") && !requestURI.toLowerCase().contains(LOGIN_URL.toLowerCase()) &&
                 !requestURI.toLowerCase().contains(RELOG_URL.toLowerCase()) && !requestURI.toLowerCase().contains(LOGOUT_URL.toLowerCase())) {
             HttpSession session = req.getSession();
             AccountDTO accountInfo = (AccountDTO) session.getAttribute("accountInfo");
-            if (accountInfo == null || ZDStringUtils.isEmpty(accountInfo.getId())) {
+            if (accountInfo == null || ZDUtils.isEmpty(accountInfo.getId())) {
                 List<MessageObject> messages = new ArrayList<>();
-                messages.add(new MessageObject("Please login first", ZDStringUtils.EMPTY));
+                messages.add(new MessageObject("Please login first", ZDUtils.EMPTY));
                 session.setAttribute("sessionMessage", messages);
                 ((HttpServletResponse)response).sendRedirect(LOGIN_URL);
                 // RequestDispatcher dispatcher = request.getRequestDispatcher(LOGIN_URL);
@@ -72,7 +74,7 @@ public class FilterLog implements Filter {
             }
         }
         if (requestURI.endsWith(".do") || !requestURI.substring(requestURI.lastIndexOf("/")).contains(".")) {
-            this.context.log("[" + ZDStringUtils.formatDate(new Date()) + "] " + req.getRemoteAddr() + " Requested to " + req.getRequestURI());
+            this.context.log("[" + ZDUtils.formatDate(new Date()) + "] " + req.getRemoteAddr() + " Requested to " + req.getRequestURI());
         }
 
         // pass the request along the filter chain

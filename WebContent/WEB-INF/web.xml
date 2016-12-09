@@ -3,6 +3,7 @@
   <display-name>ZERODIOS2015</display-name>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
+    <welcome-file>Dashboard.do</welcome-file>
   </welcome-file-list>
   <error-page>
     <error-code>404</error-code>
@@ -54,7 +55,7 @@
   </filter-mapping>
   <servlet>
     <servlet-name>relog</servlet-name>
-    <servlet-class>com.zerodios2015.servlet.RelogServlet</servlet-class>
+    <servlet-class>com.zerodios2015.Servlet.RelogServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>relog</servlet-name>
@@ -62,10 +63,20 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>NewsServlet</servlet-name>
-    <servlet-class>com.zerodios2015.servlet.NewsServlet</servlet-class>
+    <servlet-class>com.zerodios2015.Servlet.NewsServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>NewsServlet</servlet-name>
     <url-pattern>/adm/newsservlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CategoryServlet</display-name>
+    <servlet-name>CategoryServlet</servlet-name>
+    <servlet-class>com.zerodios2015.Servlet.CategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CategoryServlet</servlet-name>
+    <url-pattern>/adm/categoryservlet</url-pattern>
   </servlet-mapping>
 </web-app>

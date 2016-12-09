@@ -5,7 +5,7 @@
  * @author: hongha1412
  *
  */
-package com.zerodios2015.form;
+package com.zerodios2015.Form;
 
 import org.apache.struts.action.ActionForm;
 

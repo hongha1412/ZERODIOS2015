@@ -20,11 +20,12 @@
                     <img src="/jsp/management/images/avatar.jpg" class="img-circle">
                     </a>
                     <div class="clear">
-                        <a href="#"><span class="text-white font-bold">@Mike Mcalidek</a></span>
-                        <small class="block">Art Director</small>
-                        <a href="#" class="btn btn-xs btn-success m-t-xs">Upgrade</a>
+                        <a href="#"><span class="text-white font-bold">@${accountInfo.name }</a></span>
+                        <small class="block">VIP ${accountInfo.vip }</small>
+                        <a href="#" class="btn btn-xs btn-success m-t-xs">Upgrade VIP</a>
                     </div>
                 </div>
+                <!-- 
                 <div class="row m-l-none m-r-none m-b-n-xs text-center">
                     <div class="col-xs-4">
                         <div class="padder-v">
@@ -45,6 +46,7 @@
                         </div>
                     </div>
                 </div>
+                -->
             </section>
         </li>
         <li>

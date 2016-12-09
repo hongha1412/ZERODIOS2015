@@ -9,9 +9,7 @@ package com.zerodios2015.DTO;
 
 import java.util.Date;
 
-import org.apache.commons.lang.StringEscapeUtils;
-
-import com.zerodios2015.Utils.ZDStringUtils;
+import com.zerodios2015.Utils.ZDUtils;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -66,9 +64,9 @@ public class NewsDTO extends BaseFormDTO {
     private Boolean pin;
 
     /**
-     * Is this enws available Integer
+     * Is this news available Boolean
      */
-    private Integer status;
+    private Boolean status;
 
     /**
      * Version long
@@ -92,7 +90,7 @@ public class NewsDTO extends BaseFormDTO {
      * 
      * @param status
      */
-    public NewsDTO(Integer status) {
+    public NewsDTO(Boolean status) {
         this.id = null;
         this.author = null;
         this.category = null;
@@ -116,7 +114,7 @@ public class NewsDTO extends BaseFormDTO {
      * @param version
      */
     public NewsDTO(int id, int category, String title, String description, String author, Date date, int remark, boolean pin,
-            int status, long version) {
+            boolean status, long version) {
         this.id = id;
         this.category = category;
         this.title = title;
@@ -148,12 +146,12 @@ public class NewsDTO extends BaseFormDTO {
         this.id = (Integer) id;
         this.category = (Integer) category;
         this.title = (String) title;
-        this.description = StringEscapeUtils.escapeHtml((String) description);
+        this.description = (String) description;
         this.author = (String) author;
-        this.date = ZDStringUtils.toDate(date);
+        this.date = ZDUtils.toDate(date);
         this.remark = (Integer) remark;
         this.pin = (Boolean) pin;
-        this.status = (Integer) status;
+        this.status = (Boolean) status;
         this.version = (Long) version;
     }
 }

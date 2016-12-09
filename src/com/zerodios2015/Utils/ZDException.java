@@ -12,7 +12,20 @@ package com.zerodios2015.Utils;
  * @author HaVH-PC
  *
  */
-public class ZDException {
+public class ZDException extends Exception {
+    /**
+     * long
+     */
+    private static final long serialVersionUID = 1L;
+
+    public ZDException() {
+        super();
+    }
+
+    public ZDException(String message) {
+        super(message);
+    }
+
     public static final String ZD_DEFAULT_EXCEPTION = "{'message': '" + MessageProperties.getMessage("msg.unknowerror") + "', 'controlName' : ''}";
     public static final String ZDNEWSEXCEPTION001 = "Lỗi query database (getNews)";
     public static final String ZDNEWSEXCEPTION002 = "Lỗi database (getNews)";

@@ -44,7 +44,11 @@
     <template:put name="content">
         <section class="vbox">
             <section class="scrollable padder">
-              <section class="table">
+              <section class="table panel panel-default">
+                <header class="panel-heading">
+                    <strong><%=MessageProperties.getMessage("news.PageName") %></strong>
+                </header>
+                <a id="addButton" href='#edit' class='btn btn-s-md btn-primary' data-bind='click: addNews' data-toggle="modal">+</a>
                 <table id="news-table"></table>
               </section>
             </section>
@@ -57,16 +61,29 @@
                 <form data-validate="parsley" id="current-news-form">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h3 class="modal-title">Edit News</h3>
+                      <h3 class="modal-title" data-bind="text: (actionType() == 0 ? 'Add News' : 'Edit News')"></h3>
                     </div>
                     <div class="modal-body">
                       <div class="form-inline col-sm-12">
-                        <h4 class="col-sm-2"><%=MessageProperties.getMessage("news.Title") %></h4>
+                        <div class="inline col-sm-2">
+                            <h4><%=MessageProperties.getMessage("news.Title") %></h4>
+                        </div>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" placeholder="Enter News Title" data-required="true" data-minlength="6" data-bind="value: title" />
                         </div>
                       </div>
-    
+
+                      <div class="line line-dashed line-lg pull-in col-sm-12"></div>
+                      <div class="form-inline col-sm-12">
+                        <div class="inline col-sm-2">
+                            <h4><%=MessageProperties.getMessage("news.Category") %>&nbsp;</h4>
+                        </div>
+                        <div class="col-sm-10">
+                            <select class="select2-option" id="category" 
+                                data-bind="options: $root.categories, optionsText: 'name', optionsValue: 'id', bsSelect: category">
+                            </select>
+                        </div>
+                      </div>
                       <div class="line line-dashed line-lg pull-in col-sm-12"></div>
                       <div class="form-inline col-sm-12">
                         <div class="inline col-sm-2">
@@ -75,21 +92,21 @@
                         <div id="remark-group" class="inline control-group col-sm-10">
                             <div class="radio inline col-sm-3-3">
                                 <label class="radio-custom">
-                                    <input type="radio" name="remark" value="0" data-bind="bsRadio: remark" />
+                                    <input type="radio" name="remark" value="1" data-bind="bsRadio: remark" />
                                     <i class="fa fa-circle-o checked"></i>
                                     <img src="/jsp/management/pageresources/none.svg" width="20px" height="20px" />
                                 </label>
                             </div>
                             <div class="radio inline col-sm-3-3">
                                 <label class="radio-custom">
-                                    <input type="radio" name="remark" value="1" data-bind="bsRadio: remark" />
+                                    <input type="radio" name="remark" value="2" data-bind="bsRadio: remark" />
                                     <i class="fa fa-circle-o"></i>
                                     <img src="/jsp/management/pageresources/new.svg" width="20px" height="20px" />
                                 </label>
                             </div>
                             <div class="radio inline col-sm-3-3">
                                 <label class="radio-custom">
-                                    <input type="radio" name="remark" value="2" data-bind="bsRadio: remark" />
+                                    <input type="radio" name="remark" value="3" data-bind="bsRadio: remark" />
                                     <i class="fa fa-circle-o"></i>
                                     <img src="/jsp/management/pageresources/hot.svg" width="20px" height="20px" />
                                 </label>
@@ -118,10 +135,10 @@
                         <div class="inline col-sm-2">
                             <h4><%=MessageProperties.getMessage("news.Status") %>&nbsp;</h4>
                         </div>
-                        <div id="pin-group" class="inline control-group col-sm-10">
+                        <div id="status-group" class="inline control-group col-sm-10">
                             <div class="checkbox inline">
                                 <label class="checkbox-custom">
-                                    <input type="checkbox" name="pin" data-bind="bsCheckbox: status" />
+                                    <input type="checkbox" name="status" data-bind="bsCheckbox: status" />
                                     <i class="fa fa-fw fa-square-o"></i>
                                     <%=MessageProperties.getMessage("global.Yes") %>
                                 </label>
@@ -188,7 +205,7 @@
                                 <a class="btn btn-default btn-sm" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
                               </div>
                             </div>
-                            <div id="editor" class="form-control" style="overflow:scroll;height:150px;max-height:150px" data-bind="bsTextarea: description" data-minlength="10" data-required="true">
+                            <div id="editor" class="form-control" style="overflow:scroll;height:250px;max-height:250px" data-bind="bsTextarea: description" data-minlength="10" data-required="true">
                             </div>
                           </div>
                      </div>

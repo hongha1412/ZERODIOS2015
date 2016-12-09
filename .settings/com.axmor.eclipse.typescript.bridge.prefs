@@ -1,0 +1,12 @@
+declaration=false
+eclipse.preferences.version=1
+mapRoot=WebContent
+module=commonjs
+noImplicitAny=false
+noResolve=false
+removeComments=false
+source=WebContent
+sourceMap=true
+target=WebContent/js
+targetRelativePathBasedOnSource=false
+targetVersion=ES5

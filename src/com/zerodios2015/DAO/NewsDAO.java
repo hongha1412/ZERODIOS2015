@@ -12,8 +12,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 import com.zerodios2015.DTO.NewsDTO;
 import com.zerodios2015.Utils.ZDException;
+import com.zerodios2015.Utils.ZDUtils;
 
 /**
  * 
@@ -22,7 +25,7 @@ import com.zerodios2015.Utils.ZDException;
  */
 public class NewsDAO extends BaseDAO {
 
-    public List<NewsDTO> getNews(NewsDTO newsDTO, String condition, int offset, int max) throws Exception {
+    public List<NewsDTO> getNews(NewsDTO newsDTO, int offset, int max) throws Exception {
         List<NewsDTO> lsNews = new ArrayList<>();
 
         sqlParameter = new ArrayList<Object>();
@@ -59,8 +62,8 @@ public class NewsDAO extends BaseDAO {
             return new NewsDTO(
                     news.get("ID"),
                     news.get("CATEGORY"),
-                    news.get("TITLE"),
-                    news.get("DESCRIPTION"),
+                    ZDUtils.unEscapeDB((String) news.get("TITLE")),
+                    ZDUtils.unEscapeDB((String) news.get("DESCRIPTION")),
                     news.get("AUTHOR"),
                     news.get("DATE"),
                     news.get("REMARK"),
@@ -72,14 +75,39 @@ public class NewsDAO extends BaseDAO {
         return lsNews;
     }
 
-    public void addNews(NewsDTO newsDTO) throws Exception {
+    /**
+     * Add news information
+     * 
+     * @param newsDTO
+     * @return true: success / false: fail
+     * @throws Exception
+     */
+    public boolean addNews(NewsDTO newsDTO) throws ZDException {
+        boolean rt = false;
+
         if (findByPrimaryKey(newsDTO.getId()) != null) {
-            throw new Exception(ZDException.ZDNEWSEXCEPTION003);
+            throw new ZDException(ZDException.ZDNEWSEXCEPTION003);
         }
 
         sqlParameter = new ArrayList<>();
         sqlCommand = new StringBuilder();
-        sqlCommand.append("INSERT INTO ");
+        sqlCommand.append("INSERT INTO WEB_NEWS VALUES (?, ?, ?, ?, ?, NOW(), ?, ?, ?, ?)");
+        sqlParameter.add(newsDTO.getId());
+        sqlParameter.add(newsDTO.getCategory());
+        sqlParameter.add(newsDTO.getTitle());
+        sqlParameter.add(StringEscapeUtils.escapeHtml(newsDTO.getDescription()));
+        sqlParameter.add(Integer.parseInt(newsDTO.getAuthor()));
+        sqlParameter.add(newsDTO.getRemark());
+        sqlParameter.add(newsDTO.getPin() ? 1 : 0);
+        sqlParameter.add(1);
+        sqlParameter.add(1);
+
+        int affRow = getJdbcTemplate().update(sqlCommand.toString(), sqlParameter.toArray());
+        if (affRow > 0) {
+            rt = true;
+        }
+
+        return rt;
     }
 
     /**
@@ -94,6 +122,7 @@ public class NewsDAO extends BaseDAO {
         if (this.findByPrimaryKey(id) == null) {
             return false;
         }
+        newsDTO.setDescription(StringEscapeUtils.escapeHtml(newsDTO.getDescription()));
 
         sqlParameter = new ArrayList<>();
         sqlCommand = new StringBuilder();
@@ -116,13 +145,36 @@ public class NewsDAO extends BaseDAO {
      * @return Null if not found 
      * @throws Exception
      */
-    public NewsDTO findByPrimaryKey(int id) throws Exception {
+    public NewsDTO findByPrimaryKey(int id) throws ZDException {
         NewsDTO result = new NewsDTO();
         result.setId(id);
-        List<NewsDTO> lsNews = this.getNews(result, null, 0, 1);
-        if (lsNews != null && !lsNews.isEmpty()) {
-            return lsNews.get(0);
+        List<NewsDTO> lsNews;
+        try {
+            lsNews = this.getNews(result, 0, 1);
+            if (lsNews != null && !lsNews.isEmpty()) {
+                return lsNews.get(0);
+            }
+        } catch (Exception e) {
+            throw new ZDException(e.getMessage());
         }
         return null;
+    }
+
+    /**
+     * Get id for add news
+     * 
+     * @return id to add
+     */
+    public Integer getIdForAdd() {
+        Integer rt = null;
+        sqlCommand = new StringBuilder();
+        sqlCommand.append("SELECT MAX(ID) ID FROM WEB_NEWS");
+
+        List<Map<String, Object>> result = getJdbcTemplate().queryForList(sqlCommand.toString());
+        if (result != null && result.size() > 0) {
+            rt = Integer.valueOf(result.get(0).get("ID").toString());
+        }
+
+        return ++rt;
     }
 }
