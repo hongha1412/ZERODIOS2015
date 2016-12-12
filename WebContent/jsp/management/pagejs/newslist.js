@@ -41,6 +41,7 @@ ScreenModel.prototype.loadData = function() {
     var dfd = $.Deferred();
     $.blockUI();
     zd.utils.request.send("/adm/newsservlet").done(function(rs) {
+        self.lsData([]);
         if (Array.isArray(rs)) {
             $.each(rs, function() {
                 self.lsData.push(new NewsObject(this.id, this.category, this.title, this.description, this.author, this.date, this.remark, this.pin, this.status, this.version));
@@ -81,10 +82,10 @@ ScreenModel.prototype.loadData = function() {
             ],
             dataSource: rs
         });
-        ko.applyBindings(self, $("#news-table")[0]);
         generateAddButton();
         $.unblockUI();
         dfd.resolve(rs);
+        ko.applyBindings(self, $("#news-table")[0]);
     });
     return dfd.promise();
 }
