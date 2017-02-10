@@ -47,30 +47,6 @@
                                         <span>News List</span>
                                     </a>
                                 </li>
-                                <li >
-                                    <a href="#" >
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Update List</span>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="#" >
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Event List</span>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="#" >
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Attention List</span>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="#" >
-                                        <i class="fa fa-angle-right"></i>
-                                        <span>Experience</span>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                         <li >

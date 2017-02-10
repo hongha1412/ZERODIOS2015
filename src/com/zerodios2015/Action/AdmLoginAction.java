@@ -77,7 +77,7 @@ public class AdmLoginAction extends Action implements ActionBaseInterface {
         }
 
         if (messages.size() <= 0) {
-            ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(((HttpServletRequest) request).getSession().getServletContext());
+            ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(request.getSession().getServletContext());
             AccountDAO dao = (AccountDAO) ctx.getBean("accountDAO");
 
             try {

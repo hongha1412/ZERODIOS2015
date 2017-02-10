@@ -67,6 +67,8 @@
         <action path="/error" forward="/jsp/error.jsp" />
         <action path="/adm/Dashboard" forward="/jsp/management/pages/home.jsp" />
         <action path="/adm/NewsList" forward="/jsp/management/pages/newslist.jsp" />
+        <action path="/adm/PlayerList" forward="/jsp/management/pages/playerlist.jsp" />
+        <action path="/adm/UserList" forward="/jsp/management/pages/userlist.jsp" />
 
         <action path="/adm/Logout" type="com.zerodios2015.Action.AdmLogoutAction">
             <forward name="success" path="/jsp/management/logout.jsp" />
