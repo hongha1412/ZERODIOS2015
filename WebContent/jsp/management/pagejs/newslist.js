@@ -42,12 +42,14 @@ ScreenModel.prototype.loadData = function() {
     $.blockUI();
     zd.utils.request.send("/adm/newsservlet").done(function(rs) {
         self.lsData([]);
-        if (Array.isArray(rs)) {
-            $.each(rs, function() {
-                self.lsData.push(new NewsObject(this.id, this.category, this.title, this.description, this.author, this.date, this.remark, this.pin, this.status, this.version));
-            });
-        } else {
-            self.lsData.push(new NewsObject(rs.id, rs.category, rs.title, rs.description, rs.author, rs.date, rs.remark, rs.pin, rs.status, rs.version));
+        if (rs) {
+            if (Array.isArray(rs)) {
+                $.each(rs, function() {
+                    self.lsData.push(new NewsObject(this.id, this.category, this.title, this.description, this.author, this.date, this.remark, this.pin, this.status, this.version));
+                });
+            } else {
+                self.lsData.push(new NewsObject(rs.id, rs.category, rs.title, rs.description, rs.author, rs.date, rs.remark, rs.pin, rs.status, rs.version));
+            }
         }
 
         $("#news-table").igGrid({
