@@ -36,7 +36,7 @@ a:hover { text-decoration:underline}
 .sed_nav3 span{ display:inline-block; }
 .third_nav{ height:41px; padding:0 5px;position:absolute; top:35px; display:none; width:460px; left:-210px}
 .third_nav a{ color:#44637f; display:inline-block; background:url(../images/nav.gif) no-repeat 0 -38px; padding-left:10px}
-.third_nav div{  line-height:27px; text-align:left;  background:#010608;/*background:url(../images/nav.gif) repeat-x 0 -142px*/ padding:0 10px;}
+.third_nav div{ margin-top: -16px; line-height:27px; text-align:left;  background:#010608;/*background:url(../images/nav.gif) repeat-x 0 -142px*/ padding:0 10px;}
 /*.third_nav1{ width:450px; left:-200px}
 .third_nav2{ width:590px; left:-270px}
 .third_nav3{ width:860px; left:-410px}*/
