@@ -59,20 +59,20 @@ public class FilterLog implements Filter {
         response.setCharacterEncoding("UTF-8");
         HttpServletRequest req = (HttpServletRequest) request;
         String requestURI = req.getRequestURI();
-        if (requestURI.toLowerCase().startsWith("/adm") && !requestURI.toLowerCase().contains(LOGIN_URL.toLowerCase()) &&
-                !requestURI.toLowerCase().contains(RELOG_URL.toLowerCase()) && !requestURI.toLowerCase().contains(LOGOUT_URL.toLowerCase())) {
-            HttpSession session = req.getSession();
-            AccountDTO accountInfo = (AccountDTO) session.getAttribute("accountInfo");
-            if (accountInfo == null || ZDUtils.isEmpty(accountInfo.getId())) {
-                List<MessageObject> messages = new ArrayList<>();
-                messages.add(new MessageObject("Please login first", ZDUtils.EMPTY));
-                session.setAttribute("sessionMessage", messages);
-                ((HttpServletResponse)response).sendRedirect(LOGIN_URL);
-                // RequestDispatcher dispatcher = request.getRequestDispatcher(LOGIN_URL);
-                // dispatcher.forward(request, response);
-                return;
-            }
-        }
+//        if (requestURI.toLowerCase().startsWith("/adm") && !requestURI.toLowerCase().contains(LOGIN_URL.toLowerCase()) &&
+//                !requestURI.toLowerCase().contains(RELOG_URL.toLowerCase()) && !requestURI.toLowerCase().contains(LOGOUT_URL.toLowerCase())) {
+//            HttpSession session = req.getSession();
+//            AccountDTO accountInfo = (AccountDTO) session.getAttribute("accountInfo");
+//            if (accountInfo == null || ZDUtils.isEmpty(accountInfo.getId())) {
+//                List<MessageObject> messages = new ArrayList<>();
+//                messages.add(new MessageObject("Please login first", ZDUtils.EMPTY));
+//                session.setAttribute("sessionMessage", messages);
+//                ((HttpServletResponse)response).sendRedirect(LOGIN_URL);
+//                // RequestDispatcher dispatcher = request.getRequestDispatcher(LOGIN_URL);
+//                // dispatcher.forward(request, response);
+//                return;
+//            }
+//        }
         if (requestURI.endsWith(".do") || !requestURI.substring(requestURI.lastIndexOf("/")).contains(".")) {
             this.context.log("[" + ZDUtils.formatDate(new Date()) + "] " + req.getRemoteAddr() + " Requested to " + req.getRequestURI());
         }

@@ -40,6 +40,7 @@ public class NewsServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
@@ -47,12 +48,14 @@ public class NewsServlet extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        long start = System.currentTimeMillis();
+//        long start = System.currentTimeMillis();
         ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(((HttpServletRequest) request).getSession().getServletContext());
         NewsDAO newsDAO = (NewsDAO) ctx.getBean("newsDAO");
         NewsDTO condition = new NewsDTO();
         PrintWriter out = response.getWriter();
+        request.getAttribute("action");
 
         if (!ZDUtils.isEmpty(request.getParameter("action"))) {
             if (request.getParameter("condition") == null || request.getParameter("newsid") == null) {
@@ -78,7 +81,7 @@ public class NewsServlet extends HttpServlet {
                 return;
             }
             out.flush();
-            System.out.println("Execute time branch 1: " + (System.currentTimeMillis() - start));
+//            System.out.println("Execute time branch 1: " + (System.currentTimeMillis() - start));
             return;
         }
 
@@ -101,7 +104,7 @@ public class NewsServlet extends HttpServlet {
         } catch (Exception e) {
             ZDLogUtils.log(Level.WARNING, this, e, e.getMessage());
         }
-        System.out.println("Execute time branch 2: " + (System.currentTimeMillis() - start));
+//        System.out.println("Execute time branch 2: " + (System.currentTimeMillis() - start));
 
         out.print(ZDUtils.toJSON(lsNews));
         out.flush();

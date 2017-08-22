@@ -28,6 +28,7 @@ public class CategoryDTO extends BaseFormDTO {
      */
     public CategoryDTO() {
         super();
+        this.status = true;
     }
 
     /**

@@ -143,7 +143,7 @@ public class ZDUtils {
         jgen.setCodec(new ObjectMapper());
         jgen.writeObject(o);
         jgen.close();
-        String rs = writer.toString().trim().replace("\"", "\\\""); //.replace("\\", "\\\\");
+        String rs = writer.toString().trim(); //.replace("\"", "\\\""); //.replace("\\", "\\\\");
         return rs.trim();
     }
 
