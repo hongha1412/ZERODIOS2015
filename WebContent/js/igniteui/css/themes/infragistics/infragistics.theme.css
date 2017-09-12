@@ -1,4 +1,4 @@
-﻿.stateNormal{border:1px solid #bcbcbc;background-color:#e8e8e8;color:#444}
+.stateNormal{border:1px solid #bcbcbc;background-color:#e8e8e8;color:#444}
 .stateHover{border:1px solid #999;background-color:#ccc;color:#444}
 .stateActive{border:1px solid #4897AA;background-color:#9ECBD6;color:#444}
 .stateFocused{border:1px solid #4897AA;background-color:#e8e8e8;color:#444}
@@ -484,7 +484,7 @@ input.ui-button,input.ui-igbutton{border-radius:0!important}
 .ui-iggrid th.ui-state-active{background:#4897AA}
 .ui-iggrid thead th.ui-state-active{border-top:0!important;border-left:0!important;border-bottom:0!important}
 .ui-iggrid th.ui-state-focus{background:#4897AA}
-.ui-iggrid .ui-iggrid-footer,.ui-iggrid .ui-iggrid-toolbar{background-color:#ccc;font-weight:normal;text-align:left;color:#444;border-top:0;display:block}
+.ui-iggrid .ui-iggrid-footer,.ui-iggrid .ui-iggrid-toolbar{background-color:#fff;font-weight:normal;text-align:left;color:#444;border-top:0;display:block}
 .ui-iggrid .ui-iggrid-footer .ui-state-default,.ui-iggrid .ui-iggrid-toolbar .ui-state-default,.ui-iggrid .ui-iggrid-addrow td,.ui-iggrid .ui-iggrid-addrow th,.ui-iggrid .ui-iggrid-footer .ui-state-hover{background-color:#ccc;color:#444;text-decoration:none}
 .ui-iggrid .ui-iggrid-footer .ui-state-default a,.ui-iggrid .ui-iggrid-toolbar .ui-state-default a,.ui-iggrid .ui-iggrid-addrow td a,.ui-iggrid .ui-iggrid-footer .ui-state-active a{color:#444;text-decoration:none}
 .ui-iggrid tbody .ui-icon,.ui-iggrid .ui-iggrid-addrow td .ui-icon{color:#888}

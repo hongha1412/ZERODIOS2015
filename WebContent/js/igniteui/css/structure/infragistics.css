@@ -1,4 +1,4 @@
-﻿.ui-igprogressbar{position:relative;text-align:left}
+.ui-igprogressbar{position:relative;text-align:left}
 .ui-igprogressbar .ui-igprogressbar-range{position:absolute;z-index:1;font-size:.7em;display:block;border:0;background-position:0 0;background-color:lightgray}
 .ui-igprogressbar-horizontal{height:.8em}
 .ui-igprogressbar-horizontal .ui-igprogressbar-range{top:0;height:100%}
@@ -264,7 +264,7 @@ li.ui-igcombo-listitem.ui-igcombo-item-in-focus+li.ui-igcombo-listitem.ui-state-
 .ui-checkbox-container .ui-icon-custom{margin:auto;position:absolute;top:0;left:0;bottom:0;right:0}
 .ui-checkbox-container .ui-icon:focus{outline:0}
 .ui-igedit-textarea{resize:none}
-.ui-iggrid{background-image:none;border-width:0}
+.ui-iggrid{background-image:none;border-width:0;padding: 0px 10px 0px 10px;}
 .ui-iggrid .ui-helper-reset{line-height:1.4;border:0 none}
 .ui-iggrid-table{table-layout:fixed;width:100%;border-collapse:separate}
 .ui-iggrid-headertable{table-layout:fixed;width:100%;white-space:normal;border-collapse:separate}
